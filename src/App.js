@@ -6,6 +6,7 @@ import Link from '@material-ui/core/Link';
 import ProTip from './ProTip';
 
 import CardFront from './components/CardFront'
+import WishCardGrid from './components/WishCardGrid';
 
 function Copyright() {
   return (
@@ -24,8 +25,11 @@ function Copyright() {
 // If user is logged out landing page will be displayed
 export default function App() {
   return (
-    <Container maxWidth="sm">
-      <CardFront />
+    <Container >
+     
+        <WishCardGrid />
+     
+      
       {/* <Box my={4}>
         <Typography variant="h4" component="h1" gutterBottom>
           Create React App v4-beta example
