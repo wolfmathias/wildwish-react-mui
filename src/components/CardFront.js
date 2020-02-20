@@ -14,9 +14,11 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
+import boleroImg from './bolero.JPG'
+
 const useStyles = makeStyles({
   root: {
-    maxWidth: 345,
+    maxWidth: 400,
   },
 });
 
@@ -28,18 +30,17 @@ export default function CardFront() {
       <CardActionArea>
         <CardMedia
           component="img"
-          alt="Contemplative Reptile"
-          height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
-          title="Contemplative Reptile"
+          alt="Bolero the lion"
+          height="400"
+          image={boleroImg}
+          title="Bolero the lion"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Lizard
+            Bolero
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
+            Bolero is an African Lion residing at a wildlife sanctuary in California.
           </Typography>
         </CardContent>
       </CardActionArea>
