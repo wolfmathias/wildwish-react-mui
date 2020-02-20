@@ -25,6 +25,7 @@ import Button from '@material-ui/core/Button';
 
 
 import boleroImg from './bolero.JPG'
+import WishProgress from './WishProgress';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -74,8 +75,8 @@ export default function CardFront() {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        
-       
+        <Button size="medium" color="primary">SPONSOR WISH</Button>
+        <WishProgress/>
       </CardActions>
       <CardActions disableSpacing>
         <Button size="small" color="primary" onClick={handleExpandClick}>
