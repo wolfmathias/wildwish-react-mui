@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Link from '@material-ui/core/Link';
 import ProTip from './ProTip';
-
+import NavBar from './components/NavBar'
 import CardFront from './components/CardFront'
 import WishCardGrid from './components/WishCardGrid';
 
@@ -25,18 +25,10 @@ function Copyright() {
 // If user is logged out landing page will be displayed
 export default function App() {
   return (
+   
     <Container >
-     
+        <NavBar/>
         <WishCardGrid />
-     
-      
-      {/* <Box my={4}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          Create React App v4-beta example
-        </Typography>
-        <ProTip />
-        <Copyright />
-      </Box> */}
     </Container>
   );
 }
