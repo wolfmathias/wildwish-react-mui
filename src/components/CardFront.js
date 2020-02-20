@@ -31,7 +31,7 @@ export default function CardFront() {
         <CardMedia
           component="img"
           alt="Bolero the lion"
-          height="400"
+          height="380"
           image={boleroImg}
           title="Bolero the lion"
         />
