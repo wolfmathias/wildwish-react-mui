@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import LinearProgress from '@material-ui/core/LinearProgress';
+import { Typography } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -15,6 +16,7 @@ export default function WishProgress() {
     const classes = useStyles();
     const [completed, setCompleted] = React.useState(0);
   
+    // TODO: Replace display functions below with one that connects to Wish progress
     React.useEffect(() => {
       function progress() {
         setCompleted(oldCompleted => {
@@ -34,8 +36,8 @@ export default function WishProgress() {
   
     return (
       <div className={classes.root}>
+          <Typography variant="body2" color="textSecondary" component="p">Funding Progress</Typography>
         <LinearProgress variant="determinate" value={completed} />
-        <LinearProgress variant="determinate" value={completed} color="secondary" />
       </div>
     );
   }
