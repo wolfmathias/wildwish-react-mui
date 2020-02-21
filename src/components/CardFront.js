@@ -8,24 +8,20 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse';
-import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import { red } from '@material-ui/core/colors';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Button from '@material-ui/core/Button';
 
 
 import boleroImg from './bolero.JPG'
 import WishProgress from './WishProgress';
+import { Divider } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -73,14 +69,17 @@ export default function CardFront() {
             California, USA
           </Typography>
         </CardContent>
+        <CardContent>
+          <WishProgress/>
+        </CardContent>
       </CardActionArea>
-      <CardActions>
-        <Button size="medium" color="primary">SPONSOR WISH</Button>
-        <WishProgress/>
+      <CardActions style={{justifyContent: 'center'}}>
+        <Button variant="contained" size="large" color="primary" >SPONSOR WISH</Button>
       </CardActions>
+      <Divider variant="middle"/>
       <CardActions disableSpacing>
         <Button size="small" color="primary" onClick={handleExpandClick}>
-          ABOUT BOLERO
+          About Bolero
         </Button>
         <IconButton
           className={clsx(classes.expand, {
@@ -105,6 +104,12 @@ export default function CardFront() {
           <Typography paragraph>
             The bio section will have a character limit so content in cards do not need to be truncated.
           </Typography>
+          <Typography paragraph>
+            Another link to sponsor the wish will be included in the expanded card to direct action back to donate form.
+          </Typography>
+          <CardActions style={{justifyContent: 'center'}}>
+            <Button size="large" color="primary" >SPONSOR BOLERO</Button>
+          </CardActions>
         </CardContent>
       </Collapse>
     </Card>
