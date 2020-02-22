@@ -13,3 +13,8 @@ const useStyles = makeStyles(theme => ({
     width: 200,
   },
 }));
+
+export default function DonateForm() {
+    const classes = useStyles();
+
+}
