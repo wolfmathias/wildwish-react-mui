@@ -79,7 +79,7 @@ export default function CardFront() {
       <Divider variant="middle"/>
       <CardActions disableSpacing>
         <Button size="small" color="primary" onClick={handleExpandClick}>
-          About Bolero
+          More Info
         </Button>
         <IconButton
           className={clsx(classes.expand, {
@@ -88,7 +88,7 @@ export default function CardFront() {
           disableRipple
           onClick={handleExpandClick}
           aria-expanded={expanded}
-          aria-label="about animal"
+          aria-label="more info"
         >
           <ExpandMoreIcon />
         </IconButton>
