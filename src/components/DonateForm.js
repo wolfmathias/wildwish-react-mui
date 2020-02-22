@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import Paper from '@material-ui/core/Paper'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -16,5 +17,27 @@ const useStyles = makeStyles(theme => ({
 
 export default function DonateForm() {
     const classes = useStyles();
+
+    return (
+        <Paper>
+        <form className={classes.root}>
+            <TextField
+                id="email"
+                label="Email"
+                style={{ margin: 8 }}
+                placeholder=""
+                helperText=""
+                fullWidth
+                margin="normal"
+                InputLabelProps={{
+                shrink: true,
+                }}
+                variant="outlined"
+                required
+            />
+            
+        </form>
+        </Paper>
+    )
 
 }
