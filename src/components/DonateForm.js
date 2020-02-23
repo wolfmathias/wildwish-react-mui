@@ -12,6 +12,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Input from '@material-ui/core/Input';
 
+// TODO: Reformat to use Redux forms
 // TODO: style so form inputs look good on form
 const useStyles = makeStyles(theme => ({
   root: {

@@ -25,7 +25,7 @@ import { Divider } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    maxWidth: 400,
+    maxWidth: 380,
   },
   media: {
     height: 0,
@@ -57,7 +57,7 @@ export default function CardFront() {
         <CardMedia
           component="img"
           alt="Bolero the lion"
-          height="380"
+          height="360"
           image={boleroImg}
           title="Bolero the lion"
         />
