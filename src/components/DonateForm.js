@@ -9,7 +9,8 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import FormControl from '@material-ui/core/FormControl'
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox'
+import Checkbox from '@material-ui/core/Checkbox';
+import Input from '@material-ui/core/Input';
 
 // TODO: style so form inputs look good on form
 const useStyles = makeStyles(theme => ({
@@ -29,10 +30,6 @@ export default function DonateForm() {
     const [state, setState] = React.useState({
         checked: true
     });
-
-    const handleChange = () => {
-    setState({checked: !state.checked});
-    };
 
     return (
         <Paper>
@@ -84,14 +81,7 @@ export default function DonateForm() {
                     required
                 />
                 <FormControlLabel
-                    control={
-                        <Checkbox
-                            checked={state.checked}
-                            onChange={handleChange}
-                            value="true"
-                            color="primary"
-                        />
-                    }
+                    control={<Checkbox color="primary"/>}
                     label="Create account after donation"
                 />
                 <Button variant="contained" size="large" color="primary">Donate</Button>
