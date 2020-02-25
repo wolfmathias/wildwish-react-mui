@@ -29,6 +29,7 @@ export default function App() {
         <NavBar/>
         {/* <DonateForm/> */}
         <WishCardGrid />
+        <UserDonations />
     </Container>
   );
 }
