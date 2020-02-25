@@ -1,9 +1,17 @@
 import React from 'react'
+import { Typography, Paper, Grid } from '@material-ui/core'
 
-const Donation = (props) => {
+
+export default function Donation(props) {
+    
     return (
-        <h2>Each donation content will include a picture of an animal, their name, and the amount</h2>
+        <Grid item xs={12}>
+            <Paper variant="outlined" elevation={0}>
+                <Typography variant="h5" component="h2">
+                    {props.donation.id}
+                </Typography>
+            </Paper>
+        </Grid>
     )
 }
 
-export default Donation
