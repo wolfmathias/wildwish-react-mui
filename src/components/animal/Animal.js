@@ -1,10 +1,11 @@
 import React from 'react'
 import { GridListTile, GridListTileBar } from '@material-ui/core';
+import DefaultImage from './default_img.jpg';
 
 export default function Animal(props) {
     return (
-        <GridListTile key={props.animal.id}>
-            <img src={props.animal.img} alt={props.animal.name} />
+        <GridListTile key={props.animal.id} cols={2} style={{ height: 'auto' }}>
+            <img src={props.animal.img || DefaultImage} alt={props.animal.name} />
             <GridListTileBar
               title={props.animal.name}
               subtitle={<span>by: {props.animal.species}</span>}
