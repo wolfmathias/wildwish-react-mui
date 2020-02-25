@@ -1,7 +1,3 @@
-// Do anything with these?
-import Container from '@material-ui/core/Container';
-import Box from '@material-ui/core/Box';
-import Link from '@material-ui/core/Link';
 
 
 import React from 'react';
@@ -17,6 +13,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid'
 
 
 import boleroImg from './bolero.JPG'
@@ -43,7 +40,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function CardFront() {
+export default function CardFront(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -52,6 +49,7 @@ export default function CardFront() {
   };
 
   return (
+    <Grid item xs={12} md={4} >  
     <Card className={classes.root}>
       <CardActionArea>
         <CardMedia
@@ -63,10 +61,13 @@ export default function CardFront() {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Bolero
+            {props.wish.animal.name}
+          </Typography>
+          <Typography variant="body1" color="textSecondary" component="p">
+            {props.wish.animal.species}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            California, USA
+            {props.wish.animal.location}
           </Typography>
         </CardContent>
         <CardContent>
@@ -113,5 +114,6 @@ export default function CardFront() {
         </CardContent>
       </Collapse>
     </Card>
+  </Grid>
   );
 }
