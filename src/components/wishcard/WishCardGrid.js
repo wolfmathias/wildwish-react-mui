@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
+
 import Grid from '@material-ui/core/Grid';
 import CardFront from './CardFront';
 
@@ -15,7 +15,10 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Animal = {
+const wishes = 
+// http://localhost:3000/wishes/active
+[
+  {
     "id": 131,
     "animal_id": 29,
     "toy_id": 7,
@@ -25,17 +28,17 @@ const Animal = {
     "image_url": null,
     "zoo_id": null,
     "message": null,
-    "current_funding": null,
+    "current_funding": 10.0,
     "total_to_fund": 10.0,
     "animal": {
       "id": 29,
-      "name": "Bolero",
-      "species": "African Lion",
+      "name": "Tsathoggua",
+      "species": "Mouse",
       "bio": null,
       "keeper_id": 5,
       "created_at": "2020-01-30T17:54:03.580Z",
       "updated_at": "2020-01-30T17:54:03.580Z",
-      "location": "Wildlife Waystation - California, USA"
+      "location": "Cheyenne Mountain Zoo - Colorado, USA"
     },
     "toy": {
       "id": 7,
@@ -45,28 +48,85 @@ const Animal = {
       "description": "It's a tube. Small animals can crawl inside it. Large animals can stick their head in it. Tuuuuuuuuubbbbeeee!!!",
       "cost": 10.0
     }
+  },
+  {
+    "id": 741,
+    "animal_id": 132,
+    "toy_id": 3,
+    "created_at": "2020-01-30T17:54:06.226Z",
+    "updated_at": "2020-02-15T01:55:41.762Z",
+    "status": "active",
+    "image_url": null,
+    "zoo_id": null,
+    "message": null,
+    "current_funding": 25.0,
+    "total_to_fund": 80.0,
+    "animal": {
+      "id": 132,
+      "name": "Viserion",
+      "species": "Seal",
+      "bio": null,
+      "keeper_id": 28,
+      "created_at": "2020-01-30T17:54:03.887Z",
+      "updated_at": "2020-01-30T17:54:03.887Z",
+      "location": "Cat Tales Zoo - Washington, USA"
+    },
+    "toy": {
+      "id": 3,
+      "created_at": "2020-01-30T17:54:04.413Z",
+      "updated_at": "2020-01-30T17:54:04.413Z",
+      "name": "Hammock",
+      "description": "A hammock made of interwoven straps. Lounge around while eating bamboo shoots!",
+      "cost": 80.0
+    }
+  },
+  {
+    "id": 888,
+    "animal_id": 160,
+    "toy_id": 8,
+    "created_at": "2020-01-30T17:54:06.610Z",
+    "updated_at": "2020-02-15T01:55:41.777Z",
+    "status": "active",
+    "image_url": null,
+    "zoo_id": null,
+    "message": null,
+    "current_funding": null,
+    "total_to_fund": 40.0,
+    "animal": {
+      "id": 160,
+      "name": "Hank Hippopopalous",
+      "species": "Porcupine",
+      "bio": null,
+      "keeper_id": 31,
+      "created_at": "2020-01-30T17:54:03.972Z",
+      "updated_at": "2020-01-30T17:54:03.972Z",
+      "location": "Point Defiance Zoo - Washington, USA"
+    },
+    "toy": {
+      "id": 8,
+      "created_at": "2020-01-30T17:54:04.420Z",
+      "updated_at": "2020-01-30T17:54:04.420Z",
+      "name": "Puzzle Box",
+      "description": "Kind of like those toddler toys. Put the square peg into the square hole. Good for monkeys.",
+      "cost": 40.0
+    }
   }
+]
 
-export default function WishCardGrid() {
+export default function WishCardGrid(props) {
   const classes = useStyles();
 
   // To render list of animals passed in as props
-  const renderAnimals = () => {
-    this.props.animals.forEach()
-  }
+  const renderWishes =
+    wishes.map(wish => {
+      return <CardFront wish={wish}/>
+    })
+  
 
   return (
     <div className={classes.root}>
       <Grid container spacing={4}>
-        <Grid item xs={12} md={4} >
-            <CardFront animal={Animal}/>
-        </Grid>
-        <Grid item xs={12} md={4} >
-            <CardFront animal={Animal}/>
-        </Grid>
-        <Grid item xs={12} md={4} >
-            <CardFront animal={Animal}/>
-        </Grid>
+        {renderWishes}
       </Grid>
     </div>
   );
