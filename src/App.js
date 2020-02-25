@@ -5,8 +5,12 @@ import Link from '@material-ui/core/Link';
 import NavBar from './components/NavBar'
 import WishCardGrid from './components/wishcard/WishCardGrid';
 
-import DonateForm from './components/DonateForm'
+import DonateForm from './components/DonateForm';
 import DonationList from './components/DonationList';
+import AnimalGrid from './components/animal/AnimalGrid';
+
+import animals from './data/Animals';
+import wishes from './data/Wishes';
 
 function Copyright() {
   return (
@@ -50,8 +54,9 @@ export default function App() {
     <Container >
         <NavBar/>
         {/* <DonateForm/> */}
-        {/* <WishCardGrid /> */}
-        <DonationList donations={donations} />
+        <WishCardGrid wishes={wishes} />
+        {/* <DonationList donations={donations} /> */}
+        <AnimalGrid animals={animals}/>
     </Container>
   );
 }
