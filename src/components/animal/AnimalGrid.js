@@ -40,8 +40,8 @@ export default function AnimalGrid(props) {
                     <ListSubheader component="div">User Animals</ListSubheader>
                 </GridListTile>
                 {props.animals.map(animal => (
-                <GridListTile key={animal.id} cols={1} style={{ height: 'auto' }}>
-                    <img src={DefaultImage} height="160" alt={animal.name} />
+                <GridListTile key={animal.id} cols={1}>
+                    <img src={animal.img || DefaultImage}  alt={animal.name} />
                     <GridListTileBar
                     title={animal.name}
                     subtitle={<span>{animal.species}</span>}
