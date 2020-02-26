@@ -32,7 +32,6 @@ export default function AnimalGrid(props) {
         return <Animal animal={animal} key={animal.id} />
     })
 
-
     return (
         <div className={classes.root}>
             <GridList cellHeight={180} className={classes.gridList}>
@@ -44,7 +43,7 @@ export default function AnimalGrid(props) {
                     <img src={animal.img || DefaultImage}  alt={animal.name} />
                     <GridListTileBar
                     title={animal.name}
-                    subtitle={<span>{animal.species}</span>}
+                    // subtitle={<span>{animal.species}</span>}
                     actionIcon={
                     <IconButton aria-label={`info about ${animal.name}`} className={classes.icon}>
                         <InfoIcon />
