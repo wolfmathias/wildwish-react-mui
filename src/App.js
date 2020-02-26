@@ -46,17 +46,28 @@ const donations = [
   }
 ]
 
+// TODO: Add routes and navbar links
+
 // App renders navigation bar
 // If user is logged out landing page will be displayed
-export default function App() {
+export default function App(props) {
   return (
-   
-    <Container >
+    // <Container >
+    //     <NavBar/>
+    //     {/* <DonateForm/> */}
+    //     <WishCardGrid wishes={wishes} />
+    //     {/* <DonationList donations={donations} /> */}
+    //     <AnimalGrid animals={animals}/>
+    // </Container>
+
+    <Router>
+      <div>
         <NavBar/>
-        {/* <DonateForm/> */}
-        <WishCardGrid wishes={wishes} />
-        {/* <DonationList donations={donations} /> */}
-        <AnimalGrid animals={animals}/>
-    </Container>
+          <Route exact path="/" component={Home}/>
+          <Route path="/about" component={About}/>
+          <Route path="/animals" component={Animals}/>
+          <Route path="/login" component={Login}/>
+      </div>
+    </Router>
   );
 }
