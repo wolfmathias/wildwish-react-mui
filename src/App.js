@@ -5,12 +5,18 @@ import Link from '@material-ui/core/Link';
 import NavBar from './components/NavBar'
 import WishCardGrid from './components/wishcard/WishCardGrid';
 
-import DonateForm from './components/DonateForm';
-import DonationList from './components/DonationList';
+import DonateForm from './components/DonationsForm';
+import DonationList from './components/DonationsIndex';
 import AnimalGrid from './components/animal/AnimalGrid';
+
+import AnimalsIndex from './components/AnimalsIndex';
+import Home from './components/Home';
 
 import animals from './data/Animals';
 import wishes from './data/Wishes';
+
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 
 function Copyright() {
   return (
@@ -50,8 +56,13 @@ const donations = [
 
 // App renders navigation bar
 // If user is logged out landing page will be displayed
-export default function App(props) {
-  return (
+export default class App extends React.Component {
+  state = {
+    animals: animals,
+    donations: donations
+  }
+  
+  render() {
     // <Container >
     //     <NavBar/>
     //     {/* <DonateForm/> */}
@@ -59,15 +70,22 @@ export default function App(props) {
     //     {/* <DonationList donations={donations} /> */}
     //     <AnimalGrid animals={animals}/>
     // </Container>
-
-    <Router>
-      <div>
-        <NavBar/>
-          <Route exact path="/" component={Home}/>
-          <Route path="/about" component={About}/>
-          <Route path="/animals" component={Animals}/>
-          <Route path="/login" component={Login}/>
-      </div>
-    </Router>
-  );
+    return (
+      <>
+      <NavBar/>
+      <Container>
+      <Router>
+        <div>
+          
+            <Route exact path="/" component={Home}/>
+            {/* <Route path="/about" component={About}/> */}
+            <Route path="/animals" render={routerProps => <AnimalsIndex {...routerProps} animals={this.state.animals}/>} />
+            <Route path="/donations" render={routerProps => <DonationsIndex {...routerProps} donations={this.state.donations}/>} />
+            {/* <Route path="/login" component={Login}/> */}
+        </div>
+      </Router>
+      </Container>
+      </>
+    )
+  }
 }
