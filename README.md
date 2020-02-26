@@ -3,7 +3,11 @@
 
 ## How to use
 
-[Clone the repo](https://github.com/bigcatplichta/wildwish-react-mui):
+Clone the [repo](https://github.com/bigcatplichta/wildwish-react-mui):
+
+```sh
+git clone git@github.com:bigcatplichta/wildwish-react-mui.git
+```
 
 Install it and run:
 
@@ -15,8 +19,3 @@ npm start
 or:
 
 [![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/bigcatplichta/wildwish-react-mui)
-
-## The idea behind the example
-
-This example demonstrates how you can use [Create React App](https://github.com/facebookincubator/create-react-app).
-# wildwish-react-mui
