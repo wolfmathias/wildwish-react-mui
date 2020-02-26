@@ -6,6 +6,8 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import { NavLink } from 'react-router-dom';
+import RouterLink from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -19,6 +21,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+// TODO: Add dynamic NabBar Title based on route
 export default function NavBar() {
   const classes = useStyles();
 
@@ -32,8 +35,8 @@ export default function NavBar() {
           <Typography variant="h6" className={classes.title}>
             Wild Wish
           </Typography>
-          <Button color="inherit">About</Button>
-          <Button color="inherit">Login</Button>
+          <Button color="inherit" component={NavLink} to="/animals">Animals</Button>
+          <Button color="inherit" component={NavLink} to="/login">Login</Button>
         </Toolbar>
       </AppBar>
     </div>
