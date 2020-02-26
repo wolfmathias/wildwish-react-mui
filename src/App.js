@@ -11,6 +11,7 @@ import AnimalGrid from './components/animal/AnimalGrid';
 
 import AnimalsIndex from './components/AnimalsIndex';
 import Home from './components/Home';
+import Login from './components/Login';
 
 import animals from './data/Animals';
 import wishes from './data/Wishes';
@@ -72,19 +73,16 @@ export default class App extends React.Component {
     // </Container>
     return (
       <>
-      <NavBar/>
-      <Container>
       <Router>
-        <div>
-          
+        <NavBar/>
+        <Container>
             <Route exact path="/" component={Home}/>
             {/* <Route path="/about" component={About}/> */}
             <Route path="/animals" render={routerProps => <AnimalsIndex {...routerProps} animals={this.state.animals}/>} />
-            <Route path="/donations" render={routerProps => <DonationsIndex {...routerProps} donations={this.state.donations}/>} />
-            {/* <Route path="/login" component={Login}/> */}
-        </div>
+            {/* <Route path="/donations" render={routerProps => <DonationsIndex {...routerProps} donations={this.state.donations}/>} /> */}
+            <Route path="/login" component={Login}/>
+        </Container>
       </Router>
-      </Container>
       </>
     )
   }
