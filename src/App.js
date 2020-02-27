@@ -3,11 +3,6 @@ import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import NavBar from './components/NavBar'
-import WishCardGrid from './components/wishcard/WishCardGrid';
-
-import DonateForm from './components/DonationsForm';
-import DonationList from './components/DonationsIndex';
-import AnimalGrid from './components/animal/AnimalGrid';
 
 import AnimalsIndex from './components/AnimalsIndex';
 import Home from './components/Home';
@@ -17,6 +12,7 @@ import animals from './data/Animals';
 import wishes from './data/Wishes';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 
 
 function Copyright() {
@@ -53,8 +49,6 @@ const donations = [
   }
 ]
 
-// TODO: Add routes and navbar links
-
 // App renders navigation bar
 // If user is logged out landing page will be displayed
 export default class App extends React.Component {
@@ -63,14 +57,47 @@ export default class App extends React.Component {
     donations: donations
   }
   
+  // For Redux store:
+  // createStore(reducer) {
+  //   let state;
+  
+  //   function dispatch(action) {
+  //     state = reducer(state, action);
+  //     render();
+  //   }
+  
+  //   function getState() {
+  //     return state;
+  //   };
+  
+  //   return {
+  //     dispatch,
+  //     getState
+  //   };
+  // };
+  //
+  // let store = createStore()
+
+  changeState(state = state, action) {
+    switch (action.type) {
+
+      case 'INCREASE_COUNT':
+        return { count: state.count + 1 }
+
+      default:
+        return state;
+    }
+  }
+
+  dispatch(action){
+    this.state = this.changeState(this.state, action)
+    this.render()
+  }
+
+  
+  
   render() {
-    // <Container >
-    //     <NavBar/>
-    //     {/* <DonateForm/> */}
-    //     <WishCardGrid wishes={wishes} />
-    //     {/* <DonationList donations={donations} /> */}
-    //     <AnimalGrid animals={animals}/>
-    // </Container>
+   
     return (
       <>
       <Router>
@@ -83,7 +110,29 @@ export default class App extends React.Component {
             <Route path="/login" component={Login}/>
         </Container>
       </Router>
+      <Copyright/>
       </>
     )
   }
+
+  // Initialize state?
+  // let store = createStore(reducer) 
+  // store.dispatch({ type: '@@INIT' });
 }
+
+// const mapStateToProps = state => {
+//   return {
+//     items: state.items
+//   };
+// };
+
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     increaseCount: () => dispatch({ type: 'INCREASE_COUNT' })
+//   };
+// };
+
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(App);
