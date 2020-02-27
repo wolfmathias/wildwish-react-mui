@@ -32,20 +32,22 @@ export default function AnimalGrid(props) {
         return <Animal animal={animal} key={animal.id} />
     })
 
+    
     return (
         <div className={classes.root}>
             <GridList cellHeight={180} className={classes.gridList}>
                 <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
                     <ListSubheader component="div">User Animals</ListSubheader>
                 </GridListTile>
-                {props.animals.map(animal => (
-                <GridListTile key={animal.id} cols={1}>
-                    <img src={animal.img || DefaultImage}  alt={animal.name} />
+                {Object.keys(props.animals).map(animalId => (
+                
+                <GridListTile key={animalId} cols={1}>
+                    <a href={`/animals/${animalId}`}><img src={props.animals[animalId].img || DefaultImage}  alt={props.animals[animalId].name} /></a>
                     <GridListTileBar
-                    title={animal.name}
+                    title={props.animals[animalId].name}
                     // subtitle={<span>{animal.species}</span>}
                     actionIcon={
-                    <IconButton aria-label={`info about ${animal.name}`} className={classes.icon}>
+                    <IconButton aria-label={`info about ${props.animals[animalId].name}`} className={classes.icon}>
                         <InfoIcon />
                     </IconButton>
                     }
