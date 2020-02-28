@@ -6,9 +6,10 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/core/styles';
 import App from './App';
 import theme from './theme';
+import AnimalsReducer from './reducers/AnimalsReducer';
 
 const store = createStore(
-  // add reducers here,
+  AnimalsReducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 

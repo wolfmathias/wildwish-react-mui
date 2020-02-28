@@ -1,17 +1,24 @@
+// React imports
 import React from 'react';
+
+// Material UI components
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
-import NavBar from './components/NavBar'
 
+// Local components
+import NavBar from './components/NavBar'
 import AnimalsIndex from './components/AnimalsIndex';
 import Home from './components/Home';
 import Login from './components/Login';
 
+// Data
 import animals from './data/Animals';
 import wishes from './data/Wishes';
 
+// For router and redux
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 
 
@@ -19,8 +26,8 @@ function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+      <Link color="inherit" >
+        Matt Plichta
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -51,7 +58,7 @@ const donations = [
 
 // App renders navigation bar
 // If user is logged out landing page will be displayed
-export default class App extends React.Component {
+class App extends React.Component {
   state = {
     animals: animals,
     donations: donations
@@ -78,28 +85,25 @@ export default class App extends React.Component {
   //
   // let store = createStore()
 
-  changeState(state = state, action) {
-    switch (action.type) {
 
-      case 'INCREASE_COUNT':
-        return { count: state.count + 1 }
+  // dispatch(action){
+  //   this.state = this.changeState(this.state, action)
+  //   this.render()
+  // }
 
-      default:
-        return state;
-    }
-  }
+  // For playing with redux
+  handleOnClick = event => {
+    this.props.increaseCount();
+  };
 
-  dispatch(action){
-    this.state = this.changeState(this.state, action)
-    this.render()
-  }
-
-  
-  
   render() {
    
     return (
       <>
+      <div className="App">
+      <button onClick={this.handleOnClick}>Click</button>
+      <p>{this.props.animalList.length}</p>
+      </div>
       <Router>
         <NavBar/>
         <Container>
@@ -120,19 +124,19 @@ export default class App extends React.Component {
   // store.dispatch({ type: '@@INIT' });
 }
 
-// const mapStateToProps = state => {
-//   return {
-//     items: state.items
-//   };
-// };
+const mapStateToProps = state => {
+  return {
+    animalList: state.animalList
+  };
+};
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     increaseCount: () => dispatch({ type: 'INCREASE_COUNT' })
-//   };
-// };
+const mapDispatchToProps = dispatch => {
+  return {
+    increaseCount: () => dispatch({ type: 'ADD_ANIMAL' })
+  };
+};
 
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(App);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);

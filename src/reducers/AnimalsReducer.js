@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 export default function AnimalsReducer(
     state = {
@@ -15,7 +15,7 @@ export default function AnimalsReducer(
             };
             
         default:
-            console.log('Initial state.animalList length: %s', state.animalList.length);
+            console.log('Initial state.animalList length: %s', state.animalList);
             return state;
     }
    
