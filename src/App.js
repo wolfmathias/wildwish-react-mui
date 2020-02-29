@@ -11,6 +11,7 @@ import NavBar from './components/NavBar'
 import AnimalsIndex from './components/AnimalsIndex';
 import Home from './components/Home';
 import Login from './components/Login';
+import NewAnimal from './components/animal/NewAnimal';
 
 // Data
 import animals from './data/Animals';
@@ -19,6 +20,7 @@ import wishes from './data/Wishes';
 // For router and redux
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
+
 
 
 
@@ -85,7 +87,7 @@ class App extends React.Component {
   //
   // let store = createStore()
 
-
+  // Redux dispatch method is the following:
   // dispatch(action){
   //   this.state = this.changeState(this.state, action)
   //   this.render()
@@ -101,7 +103,7 @@ class App extends React.Component {
     return (
       <>
       <div className="App">
-      <button onClick={this.handleOnClick}>Click</button>
+      <button onClick={this.handleOnClick}>BUTTON FOR PLAYING WITH REDUX STORE</button>
       <p>{this.props.animalList.length}</p>
       </div>
       <Router>
@@ -110,6 +112,7 @@ class App extends React.Component {
             <Route exact path="/" component={Home}/>
             {/* <Route path="/about" component={About}/> */}
             <Route path="/animals" render={routerProps => <AnimalsIndex {...routerProps} animals={this.state.animals}/>} />
+            <Route path="/newanimal" render={routerProps => <NewAnimal {...routerProps} animals={this.state.animals}/>} />
             {/* <Route path="/donations" render={routerProps => <DonationsIndex {...routerProps} donations={this.state.donations}/>} /> */}
             <Route path="/login" component={Login}/>
         </Container>
@@ -118,12 +121,9 @@ class App extends React.Component {
       </>
     )
   }
-
-  // Initialize state?
-  // let store = createStore(reducer) 
-  // store.dispatch({ type: '@@INIT' });
 }
 
+// Take the state from the store and map them to props
 const mapStateToProps = state => {
   return {
     animalList: state.animalList
