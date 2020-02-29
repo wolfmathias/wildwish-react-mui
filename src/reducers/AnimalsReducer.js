@@ -1,7 +1,8 @@
-
+import animals from '../data/Animals';
 
 export default function AnimalsReducer(
     state = {
+        animals: animals,
         animalList: []
     }, 
     action
