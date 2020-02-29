@@ -11,7 +11,7 @@ import NavBar from './components/NavBar'
 import AnimalsIndex from './components/AnimalsIndex';
 import Home from './components/Home';
 import Login from './components/Login';
-import NewAnimal from './components/animal/NewAnimal';
+import NewAnimal from './components/NewAnimal';
 
 // Data
 import animals from './data/Animals';
@@ -81,7 +81,7 @@ class App extends React.Component {
         <Container>
             <Route exact path="/" component={Home}/>
             {/* <Route path="/about" component={About}/> */}
-            <Route path="/animals" render={routerProps => <AnimalsIndex {...routerProps} animals={this.state.animals}/>} />
+            <Route path="/animals" render={routerProps => <AnimalsIndex {...routerProps} animals={this.state.animals}/>} addAnimal={this.props.addAnimal}/>
             <Route path="/newanimal" render={routerProps => <NewAnimal {...routerProps} animals={this.state.animals}/>} />
             {/* <Route path="/donations" render={routerProps => <DonationsIndex {...routerProps} donations={this.state.donations}/>} /> */}
             <Route path="/login" component={Login}/>
@@ -113,7 +113,7 @@ const mapStateToProps = state => {
 // Below, addAnimal() can accept a payload of an animal as `addAnimal(animal)`, where `animal` is an object {name: "", species: "", etc}
 const mapDispatchToProps = dispatch => {
   return {
-    addItem: () => {
+    addAnimal: () => {
       dispatch(addAnimal())
     }
   };

@@ -12,6 +12,7 @@ class NewAnimal extends Component {
     // Submit handler is throwing warning in console for taking too long
     handleOnSubmit = (event) => {
         event.preventDefault();
+        // this.props.addAnimal()
         this.props.dispatch({type: 'ADD_ANIMAL', animal: this.state})
     }
     

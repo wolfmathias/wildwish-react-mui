@@ -1,8 +1,8 @@
 import React from 'react';
-import AnimalGrid from './animal/AnimalGrid';
-import ShowAnimal from './animal/ShowAnimal';
+import AnimalGrid from './AnimalGrid';
+import ShowAnimal from './ShowAnimal';
 import {Route} from 'react-router-dom';
-import NewAnimal from './animal/NewAnimal';
+import NewAnimal from './NewAnimal';
 import { connect } from 'react-redux';
 
 function AnimalsIndex({match, animals}) {
@@ -26,8 +26,23 @@ function AnimalsIndex({match, animals}) {
 const mapStateToProps = (state) => {
     return {
       animals: state.animals,
-      numberOfAnimals: state.animals.length
     };
 };
   
-export default connect(mapStateToProps)(AnimalsIndex)
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     addAnimal: () => dispatch({ type: 'ADD_ANIMAL' })
+//   };
+// };
+//
+// OR:
+// Below, addAnimal() can accept a payload of an animal as `addAnimal(animal)`, where `animal` is an object {name: "", species: "", etc}
+const mapDispatchToProps = dispatch => {
+    return {
+        addAnimal: () => {
+        dispatch(this.props.addAnimal())
+        }
+    };
+};
+  
+export default connect(mapStateToProps, mapDispatchToProps)(AnimalsIndex)
