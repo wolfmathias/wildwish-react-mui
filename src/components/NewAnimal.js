@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { addAnimal } from '../actions/animals';
 
 class NewAnimal extends Component {
    
@@ -11,9 +12,10 @@ class NewAnimal extends Component {
     
     // Submit handler is throwing warning in console for taking too long
     handleOnSubmit = (event) => {
+        debugger
         event.preventDefault();
-        // this.props.addAnimal()
-        this.props.dispatch({type: 'ADD_ANIMAL', animal: this.state})
+        this.props.addAnimal(this.state)
+        // this.props.dispatch({type: 'ADD_ANIMAL', animal: this.state})
     }
     
     render() {
@@ -42,4 +44,16 @@ class NewAnimal extends Component {
     }
 }
 
-export default connect()(NewAnimal);
+// const mapDispatchToProps = dispatch => {
+//     return {
+//       addAnimal: (animal) => {
+//         dispatch(addAnimal(animal))
+//       }
+//     };
+// };
+
+
+// export default connect(null, mapDispatchToProps)(NewAnimal);
+
+// Alternative connect:
+export default connect(null, { addAnimal })(NewAnimal);
