@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
+// addAnimal action
 import { addAnimal } from '../actions/animals';
 
 class NewAnimal extends Component {
@@ -15,6 +17,7 @@ class NewAnimal extends Component {
         debugger
         event.preventDefault();
         this.props.addAnimal(this.state)
+        // Above addAnimal() is same as below when using connect:
         // this.props.dispatch({type: 'ADD_ANIMAL', animal: this.state})
     }
     
@@ -44,6 +47,9 @@ class NewAnimal extends Component {
     }
 }
 
+export default connect(null, { addAnimal })(NewAnimal);
+
+// Above is doing same as:
 // const mapDispatchToProps = dispatch => {
 //     return {
 //       addAnimal: (animal) => {
@@ -51,9 +57,4 @@ class NewAnimal extends Component {
 //       }
 //     };
 // };
-
-
 // export default connect(null, mapDispatchToProps)(NewAnimal);
-
-// Alternative connect:
-export default connect(null, { addAnimal })(NewAnimal);
