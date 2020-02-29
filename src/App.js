@@ -61,7 +61,7 @@ const donations = [
 
 // App renders navigation bar
 // If user is logged out landing page will be displayed
-class App extends React.Component {
+export default class App extends React.Component {
   state = {
     animals: animals,
     donations: donations
@@ -97,11 +97,11 @@ class App extends React.Component {
 // export default connect(state => ({ animals: state.animals }), { addAnimal: addAnimal })(App);
 
 // Above line is composed of the following:
-const mapStateToProps = state => {
-  return {
-    animals: state.animals
-  };
-};
+// const mapStateToProps = state => {
+//   return {
+//     animals: state.animals
+//   };
+// };
 
 // const mapDispatchToProps = dispatch => {
 //   return {
@@ -111,18 +111,18 @@ const mapStateToProps = state => {
 //
 // OR:
 // Below, addAnimal() can accept a payload of an animal as `addAnimal(animal)`, where `animal` is an object {name: "", species: "", etc}
-const mapDispatchToProps = dispatch => {
-  return {
-    addAnimal: () => {
-      dispatch(addAnimal())
-    }
-  };
-};
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     addAnimal: () => {
+//       dispatch(addAnimal())
+//     }
+//   };
+// };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(App);
 
  // For Redux store:
   // createStore(reducer) {
