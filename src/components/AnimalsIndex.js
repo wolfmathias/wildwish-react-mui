@@ -23,11 +23,12 @@ function AnimalsIndex({match, animals}) {
     // <Route path={`${match.url}/:animalId`} render={routerProps => <ShowAnimal {...routerProps} animals={animals} /> }/>
 }
 
+// Use redux to connect state from store to current props
 const mapStateToProps = (state) => {
     return {
       animals: state.animals,
     };
 };
-  
-  
+
+// Connect component to redux store
 export default connect(mapStateToProps)(AnimalsIndex)
