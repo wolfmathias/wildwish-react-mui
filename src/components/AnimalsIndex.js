@@ -29,20 +29,5 @@ const mapStateToProps = (state) => {
     };
 };
   
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     addAnimal: () => dispatch({ type: 'ADD_ANIMAL' })
-//   };
-// };
-//
-// OR:
-// Below, addAnimal() can accept a payload of an animal as `addAnimal(animal)`, where `animal` is an object {name: "", species: "", etc}
-const mapDispatchToProps = dispatch => {
-    return {
-        addAnimal: () => {
-        dispatch(this.props.addAnimal())
-        }
-    };
-};
   
-export default connect(mapStateToProps, mapDispatchToProps)(AnimalsIndex)
+export default connect(mapStateToProps)(AnimalsIndex)
