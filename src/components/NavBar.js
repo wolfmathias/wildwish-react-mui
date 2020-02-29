@@ -36,7 +36,7 @@ export default function NavBar() {
             Wild Wish
           </Typography>
           <Button color="inherit" component={NavLink} to="/animals">Animals</Button>
-          <Button color="inherit" component={NavLink} to="/newanimal">New Animal</Button>
+          <Button color="inherit" component={NavLink} to="/animals/new">New Animal</Button>
         </Toolbar>
       </AppBar>
     </div>

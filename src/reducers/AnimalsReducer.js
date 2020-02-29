@@ -9,10 +9,11 @@ export default function AnimalsReducer(
 ) {
     switch(action.type) {
         case 'ADD_ANIMAL':
-            console.log("added animal")
+            console.log("adding", action.animal)
             return {
                 ...state,
-                animalList: state.animalList.concat(state.animalList.length + 1)
+                animals: [...state.animals, action.animal]
+                // animals: state.animals.concat(state.animalList.length + 1)
             };
             
         default:

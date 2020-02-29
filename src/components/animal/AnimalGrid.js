@@ -45,7 +45,7 @@ export default function AnimalGrid(props) {
                     <a href={`/animals/${animalId}`}><img src={animal.img || DefaultImage}  alt={animal.name} /></a>
                     <GridListTileBar
                     title={animal.name}
-                    // subtitle={<span>{animal.species}</span>}
+                    subtitle={<span>{animal.species}</span>}
                     actionIcon={
                     <IconButton aria-label={`info about ${animal.name}`} className={classes.icon}>
                         <InfoIcon />
