@@ -21,6 +21,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 // TODO: Add dynamic NabBar Title based on route
+// TODO: remove 'New Animal' button. Nest inside animals page instead
 export default function NavBar() {
   const classes = useStyles();
 
@@ -35,7 +36,7 @@ export default function NavBar() {
             Wild Wish
           </Typography>
           <Button color="inherit" component={NavLink} to="/animals">Animals</Button>
-          <Button color="inherit" component={NavLink} to="/login">Login</Button>
+          <Button color="inherit" component={NavLink} to="/newanimal">New Animal</Button>
         </Toolbar>
       </AppBar>
     </div>
