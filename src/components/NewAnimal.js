@@ -14,7 +14,6 @@ class NewAnimal extends Component {
     
     // Submit handler is throwing warning in console for taking too long
     handleOnSubmit = (event) => {
-        debugger
         event.preventDefault();
         this.props.addAnimal(this.state)
         // Above addAnimal() is same as below when using connect:
