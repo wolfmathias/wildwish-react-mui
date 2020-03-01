@@ -7,9 +7,12 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import App from './App';
 import theme from './theme';
 import AnimalsReducer from './reducers/AnimalsReducer';
+import manageUsers from './reducers/ManageUsers';
+import rootReducer from './reducers/rootReducer';
 
 const store = createStore(
-  AnimalsReducer,
+  rootReducer,
+  // manageUsers,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 

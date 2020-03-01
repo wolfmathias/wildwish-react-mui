@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import { AnimalsReducer } from './AnimalsReducer';
-import { WishesReducer } from './WishesReducer';
+import AnimalsReducer from './AnimalsReducer';
+import WishesReducer from './WishesReducer';
  
 const rootReducer = combineReducers({
   animals: AnimalsReducer,
