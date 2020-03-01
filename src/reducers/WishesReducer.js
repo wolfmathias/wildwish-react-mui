@@ -1,3 +1,4 @@
+// WishesReducer is passed in to combineReducers() when using Redux to create the store.
 
 export default function WishesReducer(state = [], action) {
     let idx;
@@ -13,4 +14,3 @@ export default function WishesReducer(state = [], action) {
         return state;
     }
   }
-
