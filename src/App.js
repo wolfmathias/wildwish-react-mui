@@ -61,10 +61,11 @@ const donations = [
 
 // App renders navigation bar
 // If user is logged out landing page will be displayed
-export default class App extends React.Component {
+class App extends React.Component {
   state = {
-    animals: animals,
-    donations: donations
+    animals: [],
+    // donations: donations,
+    wishes
   }
   
 
@@ -92,3 +93,11 @@ export default class App extends React.Component {
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    animals: state.animals,
+  };
+};
+
+export default connect(mapStateToProps)(App);
