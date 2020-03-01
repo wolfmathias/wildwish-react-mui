@@ -17,15 +17,15 @@ export default function AnimalsReducer(
         // Both AnimalReducer and WishesReducer respond to ADD WISH action
         // TODO: update prop names to match actual data
         // Do I even want to handle it this way?
-        case "ADD_WISH":
-            let existingAnimal = state.filter(
-                animal => animal.animalName === action.wish.animalName
-            );
-            if (existingAnimal.length > 0) {
-                return state;
-            } else {
-                return [...state, { animalName: action.wish.animalName, id: uuid() }];
-            }
+        // case "ADD_WISH":
+        //     let existingAnimal = state.filter(
+        //         animal => animal.animalName === action.wish.animalName
+        //     );
+        //     if (existingAnimal.length > 0) {
+        //         return state;
+        //     } else {
+        //         return [...state, { animalName: action.wish.animalName, id: uuid() }];
+        //     }
 
         default:
             return state;
