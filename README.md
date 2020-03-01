@@ -4,7 +4,7 @@
 
 The app allows zoos, zookeepers, and other care professionals to create profiles for their animals, where each animal has a wishlist. 
 
-The individual wishes are available to view, and displayed publicly as a large image element of the animal it bolongs to. 
+The individual wishes are available to view, and displayed publicly as a large image element of the animal it belongs to. 
 
 Users are directed to a button to donate, and the amount suggested is programmatically set based on previous amount donated, amount funded, and the total to complete funding.
 
