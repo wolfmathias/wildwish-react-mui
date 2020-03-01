@@ -14,13 +14,13 @@ import Login from './components/Login';
 import NewAnimal from './components/NewAnimal';
 
 // Data
-import animals from './data/Animals';
-import wishes from './data/Wishes';
+// import animals from './data/Animals';
+// import wishes from './data/Wishes';
 
 // For router and redux
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { addAnimal } from './actions/animals';
+// import { addAnimal } from './actions/animals';
 
 
 
@@ -38,26 +38,26 @@ function Copyright() {
   );
 }
 
-const donations = [
-  {
-    id: 1,
-    donor_id: 1,
-    wish_id: 1,
-    created_at: "Time Created"
-  },
-  {
-    id: 2,
-    donor_id: 2,
-    wish_id: 2,
-    created_at: "Time Created"
-  },
-  {
-    id: 3,
-    donor_id: 3,
-    wish_id: 3,
-    created_at: "Time Created"
-  }
-]
+// const donations = [
+//   {
+//     id: 1,
+//     donor_id: 1,
+//     wish_id: 1,
+//     created_at: "Time Created"
+//   },
+//   {
+//     id: 2,
+//     donor_id: 2,
+//     wish_id: 2,
+//     created_at: "Time Created"
+//   },
+//   {
+//     id: 3,
+//     donor_id: 3,
+//     wish_id: 3,
+//     created_at: "Time Created"
+//   }
+// ]
 
 // App renders navigation bar
 // If user is logged out landing page will be displayed
@@ -65,7 +65,7 @@ class App extends React.Component {
   state = {
     animals: [],
     // donations: donations,
-    wishes
+    wishes: []
   }
   
 
