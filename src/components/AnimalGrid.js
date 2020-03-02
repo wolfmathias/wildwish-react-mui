@@ -34,17 +34,16 @@ function AnimalGrid(props) {
     //     return <AnimalTile animal={animal} key={animal.id} />
     // })
 
-    
+    console.log(props.animals)
     return (
         <div className={classes.root}>
             <GridList cellHeight={180} className={classes.gridList}>
                 <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
                     <ListSubheader component="div">User Animals</ListSubheader>
                 </GridListTile>
-                {props.animals.map((animal, animalId) => (
-                
-                <GridListTile key={animalId} cols={1}>
-                    <a href={`/animals/${animalId}`}><img src={animal.img || DefaultImage}  alt={animal.name} /></a>
+                {props.animals.map((animal, idx) => (
+                <GridListTile key={animal.id} cols={1}>
+                    <a href={`/animals/${animal.id}`}><img src={animal.img || DefaultImage}  alt={animal.name} /></a>
                     <GridListTileBar
                     title={animal.name}
                     subtitle={<span>{animal.species}</span>}

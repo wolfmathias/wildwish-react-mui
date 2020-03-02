@@ -14,7 +14,9 @@ export default function AnimalsReducer(
         case "DELETE_ANIMAL":
             idx = state.findIndex(animal => animal.id  === action.payload.id)
             console.log("deleting", action.payload)
-            return [...state.slice(0, idx), ...state.slice(idx + 1)];
+            // Which of the two returns to use below? Both do same thing:
+            // return [...state.slice(0, idx), ...state.slice(idx + 1)];
+            return state.filter(animal => animal !== action.payload)
 
         // Both AnimalReducer and WishesReducer respond to ADD WISH action
         // TODO: update prop names to match actual data
