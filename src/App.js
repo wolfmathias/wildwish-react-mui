@@ -16,6 +16,7 @@ import NewAnimal from './components/NewAnimal';
 // Data
 // import animals from './data/Animals';
 // import wishes from './data/Wishes';
+import { fetchAnimals } from './actions/animals';
 
 // For router and redux
 import { BrowserRouter as Router, Route } from 'react-router-dom';
@@ -62,21 +63,21 @@ function Copyright() {
 // App renders navigation bar
 // If user is logged out landing page will be displayed
 class App extends React.Component {
-  state = {
-    animals: [],
-    // donations: donations,
-    wishes: []
-  }
+  // state = {
+  //   animals: [],
+  //   // donations: donations,
+  //   wishes: []
+  // }
   
+  componentDidMount() {
+    console.log(this.props)
+    this.props.fetchAnimals()
+  }
 
   render() {
-   
+   console.log(this.props.animals)
     return (
       <>
-      {/* <div className="App">
-      <button onClick={this.handleOnClick}>BUTTON FOR PLAYING WITH REDUX STORE</button>
-      <p>{this.props.animalList.length}</p>
-      </div> */}
       <Router>
         <NavBar/>
         <Container>
@@ -100,4 +101,13 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchAnimals: () => dispatch(fetchAnimals())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+// Below does same thing as above:
+// export default connect(mapStateToProps, { fetchAnimals })(App);
