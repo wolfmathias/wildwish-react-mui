@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-// addAnimal action
+// Unique id generator
+import uuid from 'uuid'
+
+// addAnimal action for redux store
 import { addAnimal } from '../actions/animals';
 
 class NewAnimal extends Component {
@@ -12,14 +15,13 @@ class NewAnimal extends Component {
         });
     }
     
-    // Submit handler is throwing warning in console for taking too long
+    // TODO: have Submit redirect to either animal index or animal show page
     handleOnSubmit = (event) => {
         event.preventDefault();
-        this.props.addAnimal(this.state)
-        // Above addAnimal() is same as below when using connect:
-        // this.props.dispatch({type: 'ADD_ANIMAL', animal: this.state})
+        this.props.addAnimal({...this.state, id: uuid()})
     }
     
+    // TODO: Separate form into componenents with styles
     render() {
         return(
             <form onSubmit={this.handleOnSubmit}>
@@ -46,13 +48,16 @@ class NewAnimal extends Component {
     }
 }
 
+// connect() is provided by redux library
+// First arg is to map state, second arg is to map dispatch actions
 export default connect(null, { addAnimal })(NewAnimal);
+// { addAnimal } is ES6 shorthand for { addAnimal: addAnimal }
 
 // Above is doing same as:
 // const mapDispatchToProps = dispatch => {
 //     return {
 //       addAnimal: (animal) => {
-//         dispatch(addAnimal(animal))
+//         dispatch(addAnimal(animal))  // dispatch() provided by redux library
 //       }
 //     };
 // };
