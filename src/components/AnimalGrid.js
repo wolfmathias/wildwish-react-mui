@@ -48,7 +48,7 @@ function AnimalGrid(props) {
                     title={animal.name}
                     subtitle={<span>{animal.species}</span>}
                     actionIcon={
-                    <IconButton onClick={() => props.delete(animal)} aria-label={`info about ${animal.name}`} className={classes.icon}>
+                    <IconButton onClick={() => props.delete(animal.id)} aria-label={`info about ${animal.name}`} className={classes.icon}>
                         <DeleteForeverIcon />
                     </IconButton>
                     }
