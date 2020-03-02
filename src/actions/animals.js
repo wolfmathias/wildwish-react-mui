@@ -1,3 +1,3 @@
-export const addAnimal = (animal) => {
-    return { type: 'ADD_ANIMAL', animal };
+export const addAnimal = (payload) => {
+    return { type: 'ADD_ANIMAL', payload };
 }; 

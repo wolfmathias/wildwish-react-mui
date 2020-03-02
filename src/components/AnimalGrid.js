@@ -1,10 +1,11 @@
 import React from 'react';
 import { GridList, GridListTile, GridListTileBar, ListSubheader, IconButton } from '@material-ui/core';
-import InfoIcon from '@material-ui/icons/Info';
+import DeleteForeverIcon from '@material-ui/icons/DeleteForeverRounded';
 import { makeStyles } from '@material-ui/core/styles';
-import Animal from './AnimalTile';
+// import AnimalTile from './AnimalTile';
 
 import DefaultImage from './default_img.jpg';
+import { connect } from 'react-redux';
 
 
 const useStyles = makeStyles(theme => ({
@@ -25,12 +26,13 @@ const useStyles = makeStyles(theme => ({
     },
   }));
 
-export default function AnimalGrid(props) {
+function AnimalGrid(props) {
     const classes = useStyles();
     
-    const animalCards = props.animals.map(animal => {
-        return <Animal animal={animal} key={animal.id} />
-    })
+    // TODO: Use below inside JSX instead of mapping over props, will need <AnimalTile> component to include <GridListTile> when rendering
+    // const animalCards = props.animals.map(animal => {
+    //     return <AnimalTile animal={animal} key={animal.id} />
+    // })
 
     
     return (
@@ -47,8 +49,8 @@ export default function AnimalGrid(props) {
                     title={animal.name}
                     subtitle={<span>{animal.species}</span>}
                     actionIcon={
-                    <IconButton aria-label={`info about ${animal.name}`} className={classes.icon}>
-                        <InfoIcon />
+                    <IconButton onClick={() => props.delete(animal)} aria-label={`info about ${animal.name}`} className={classes.icon}>
+                        <DeleteForeverIcon />
                     </IconButton>
                     }
                     />
@@ -59,3 +61,12 @@ export default function AnimalGrid(props) {
         </div>
     )
 }
+
+// TODO: Move this function (and icon display) to animal show page and have edit action also
+const mapDispatchToProps = dispatch => {
+    return {
+        delete: animal => dispatch({type: "DELETE_ANIMAL", payload: animal})
+    }
+}
+
+export default connect(null, mapDispatchToProps)(AnimalGrid)
