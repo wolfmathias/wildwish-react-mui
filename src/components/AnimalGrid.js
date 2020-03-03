@@ -76,7 +76,7 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = (state) => {
     return {
-        animals: state.animals,
+        animals: state.animalStore,
     };
 };
 

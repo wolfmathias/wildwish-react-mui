@@ -5,13 +5,13 @@ import {Route} from 'react-router-dom';
 import NewAnimal from './NewAnimal';
 import { connect } from 'react-redux';
 
-export default function AnimalsIndex({match, animals}) {
-   
+function AnimalsIndex({match, animals}) {
+//    debugger
     return (
         <>
         <Route exact path="/animals" render={routerProps => <AnimalGrid {...routerProps} animals={animals}/>} />
         <Route path={`${match.url}/new`} render={routerProps => <NewAnimal {...routerProps} animals={animals} /> }/>
-        {/* <Route path={`${match.url}/:animalId`} render={routerProps => <ShowAnimal {...routerProps} animals={animals} /> }/> */}
+        {/* <Route path={`${match.url}/:animalId`} render={routerProps => <ShowAnimal {...routerProps} animals={animals.animals} /> }/> */}
         
         </>
 
@@ -24,11 +24,11 @@ export default function AnimalsIndex({match, animals}) {
 }
 
 // Use redux to connect state from store to current props
-// const mapStateToProps = (state) => {
-//     return {
-//       animals: state.animals,
-//     };
-// };
+const mapStateToProps = (state) => {
+    return {
+      animals: state.animalStore,
+    };
+};
 
 // Connect component to redux store
-// export default connect(mapStateToProps)(AnimalsIndex)
+export default connect(mapStateToProps)(AnimalsIndex)
