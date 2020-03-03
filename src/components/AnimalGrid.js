@@ -35,37 +35,36 @@ function AnimalGrid(props) {
     // })
 
     console.log(props.animals)
-    if (!props.animals.loading) {
-        return (
-            <div className={classes.root}>
-                <GridList cellHeight={180} className={classes.gridList}>
-                    <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
-                        <ListSubheader component="div">User Animals</ListSubheader>
-                    </GridListTile>
-                    {/* props.animals is an object like {animals: [], loading: false}, map over the nested animals array */}
-                    {props.animals.animals.map((animal, idx) => (
-                    <GridListTile key={animal.id} cols={1}>
-                        <a href={`/animals/${animal.id}`}><img src={animal.img || DefaultImage}  alt={animal.name} /></a>
-                        <GridListTileBar
-                        title={animal.name}
-                        subtitle={<span>{animal.species}</span>}
-                        actionIcon={
-                        <IconButton onClick={() => props.delete(animal.id)} aria-label={`info about ${animal.name}`} className={classes.icon}>
-                            <DeleteForeverIcon />
-                        </IconButton>
-                        }
-                        />
-                    </GridListTile>
-                    ))}
-                </GridList>
-                
-            </div>
-        )
-    } else {
+    if (props.animals.loading) {
         return (
             <h1>Loading...</h1>
         )
     }
+    return (
+        <div className={classes.root}>
+            <GridList cellHeight={180} className={classes.gridList}>
+                <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
+                    <ListSubheader component="div">User Animals</ListSubheader>
+                </GridListTile>
+                {/* props.animals is an object like {animals: [], loading: false}, map over the nested animals array */}
+                {props.animals.animals.map((animal, idx) => (
+                <GridListTile key={animal.id} cols={1}>
+                    <a href={`/animals/${animal.id}`}><img src={animal.img || DefaultImage}  alt={animal.name} /></a>
+                    <GridListTileBar
+                    title={animal.name}
+                    subtitle={<span>{animal.species}</span>}
+                    actionIcon={
+                    <IconButton onClick={() => props.delete(animal.id)} aria-label={`info about ${animal.name}`} className={classes.icon}>
+                        <DeleteForeverIcon />
+                    </IconButton>
+                    }
+                    />
+                </GridListTile>
+                ))}
+            </GridList>
+            
+        </div>
+    )
 }
 
 // TODO: Move this function (and icon display) to animal show page and have edit action also
