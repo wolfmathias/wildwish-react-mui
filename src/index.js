@@ -8,6 +8,8 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import App from './App';
 import theme from './theme';
 import rootReducer from './reducers/rootReducer';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Root from './Root';
 
 const store = createStore(
   rootReducer,
@@ -16,13 +18,17 @@ const store = createStore(
 );
 
 
-ReactDOM.render(
-  <Provider store={store}>
-    <ThemeProvider theme={theme}>
-      {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-      <CssBaseline />
-      <App />
-    </ThemeProvider>
-  </Provider>,
-  document.querySelector('#root'),
-);
+// ReactDOM.render(
+//   <Provider store={store}>
+//     <ThemeProvider theme={theme}>
+//       {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+//       <CssBaseline />
+//       <Router>
+//         <Route path="/:filter?" component={App} />
+//       </Router>
+//     </ThemeProvider>
+//   </Provider>,
+//   document.querySelector('#root'),
+// );
+
+ReactDOM.render(<Root store={store} />, document.getElementById('root'))
