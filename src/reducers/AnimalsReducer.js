@@ -11,7 +11,7 @@ export default function AnimalsReducer(
     console.log(state.animals)
     switch(action.type) { 
         case 'LOADING_ANIMALS':
-            console.log('Loading:', state.loading)
+            console.log('Loading...')
             return {
                 // ...state, 
                 animals: [...state.animals],

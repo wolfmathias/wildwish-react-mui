@@ -3,8 +3,8 @@ import AnimalsReducer from './AnimalsReducer';
 import WishesReducer from './WishesReducer';
  
 const rootReducer = combineReducers({
-  AnimalsReducer,
-  WishesReducer
+  animals: AnimalsReducer,
+  wishes: WishesReducer
 });
  
 export default rootReducer;
