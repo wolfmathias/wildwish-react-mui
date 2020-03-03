@@ -31,7 +31,10 @@ export default function AnimalsReducer(
             // Which of the two returns to use below? Both do same thing:
             // let idx = state.findIndex(animal => animal.id  === action.payload)
             // return [...state.slice(0, idx), ...state.slice(idx + 1)];
-            return state.filter(animal => animal.id !== action.payload)
+            return {
+                ...state,
+                animals: state.animals.filter(animal => animal.id !== action.payload)
+            }
 
         // Both AnimalReducer and WishesReducer respond to ADD WISH action
         // TODO: update prop names to match actual data
