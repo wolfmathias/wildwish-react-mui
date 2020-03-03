@@ -75,7 +75,7 @@ class App extends React.Component {
   }
 
   render() {
-   console.log(this.props.animals)
+   console.log(this.props)
     return (
       <>
       <Router>
@@ -83,8 +83,8 @@ class App extends React.Component {
         <Container>
             <Route exact path="/" component={Home}/>
             {/* <Route path="/about" component={About}/> */}
-            <Route path="/animals" render={routerProps => <AnimalsIndex {...routerProps} animals={this.state.animals}/>} addAnimal={this.props.addAnimal}/>
-            <Route path="/newanimal" render={routerProps => <NewAnimal {...routerProps} animals={this.state.animals}/>} />
+            <Route path="/animals" render={routerProps => <AnimalsIndex {...routerProps} animals={this.props.animals}/>} addAnimal={this.props.addAnimal}/>
+            {/* <Route path="/newanimal" render={routerProps => <NewAnimal {...routerProps} animals={this.state.animals}/>} /> */}
             {/* <Route path="/donations" render={routerProps => <DonationsIndex {...routerProps} donations={this.state.donations}/>} /> */}
             <Route path="/login" component={Login}/>
         </Container>
@@ -96,8 +96,9 @@ class App extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log('inMapStateToProps:', state.animals)
   return {
-    animals: state.animals,
+    animals: state.animals.animals,
   };
 };
 
