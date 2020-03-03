@@ -32,8 +32,8 @@ export default function NavBar() {
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            Wild Wish
+          <Typography variant="h6" className={classes.title}> 
+            <Button color="inherit" component={NavLink} to="/">Wild Wish</Button>
           </Typography>
           <Button color="inherit" component={NavLink} to="/animals">Animals</Button>
           <Button color="inherit" component={NavLink} to="/animals/new">New Animal</Button>
