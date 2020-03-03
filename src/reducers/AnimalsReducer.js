@@ -2,19 +2,34 @@ import animals from '../data/Animals';
 import uuid from "uuid";
 
 export default function AnimalsReducer(
-    state = animals, 
+    state = {
+        animals: [],
+        loading: false
+    }, 
     action
 ) {
-    let idx;
+    console.log(state.animals)
     switch(action.type) { 
-        case 'ADD_ANIMAL':
+        case 'LOADING_ANIMALS':
+            console.log('Loading:', state.loading)
+            return {
+                // ...state, 
+                animals: [...state.animals],
+                loading: true
+            };
+        
+        case 'ADD_ANIMALS':
             console.log("adding", action.payload)
-            return [...state, action.payload];
+            return {
+                ...state, 
+                animals: action.payload,
+                loading: false
+            };
         
         case "DELETE_ANIMAL":
-            idx = state.findIndex(animal => animal.id  === action.payload)
             console.log("deleting animal with id:", action.payload)
             // Which of the two returns to use below? Both do same thing:
+            // let idx = state.findIndex(animal => animal.id  === action.payload)
             // return [...state.slice(0, idx), ...state.slice(idx + 1)];
             return state.filter(animal => animal.id !== action.payload)
 
