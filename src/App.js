@@ -83,7 +83,7 @@ class App extends React.Component {
         <Container>
             <Route exact path="/" component={Home}/>
             {/* <Route path="/about" component={About}/> */}
-            <Route path="/animals" render={routerProps => <AnimalsIndex {...routerProps} animals={this.props.animals.animals}/>} addAnimal={this.props.addAnimal}/>
+            <Route path="/animals" render={routerProps => <AnimalsIndex {...routerProps} />} addAnimal={this.props.addAnimal}/>
             {/* <Route path="/newanimal" render={routerProps => <NewAnimal {...routerProps} animals={this.state.animals}/>} /> */}
             {/* <Route path="/donations" render={routerProps => <DonationsIndex {...routerProps} donations={this.state.donations}/>} /> */}
             <Route path="/login" component={Login}/>
@@ -98,7 +98,7 @@ class App extends React.Component {
 const mapStateToProps = (state) => {
   console.log('inMapStateToProps:', state)
   return {
-    animals: state.animals,
+    animals: state.animalStore,
   };
 };
 
