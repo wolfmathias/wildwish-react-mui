@@ -5,10 +5,11 @@ export const addAnimal = (payload) => {
 export const fetchAnimals = () => {
     return (dispatch) => {
       dispatch({ type: 'LOADING_ANIMALS'})
-      fetch('https://localhost:3000/animals').then(response => {
-        return response.json()
-      }).then(responseJSON => {
-        dispatch({ type: 'ADD_ANIMALS', responseJSON })
+      fetch('http://localhost:3001/animals')
+      .then(response => response.json())
+      .then(responseJSON => {
+        console.log(responseJSON)
+        dispatch({ type: 'ADD_ANIMALS', payload: responseJSON })
       })
     }
   }
