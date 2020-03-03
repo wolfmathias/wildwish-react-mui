@@ -5,7 +5,7 @@ import {Route} from 'react-router-dom';
 import NewAnimal from './NewAnimal';
 import { connect } from 'react-redux';
 
-function AnimalsIndex({match, animals}) {
+export default function AnimalsIndex({match, animals}) {
    
     return (
         <>
@@ -24,11 +24,11 @@ function AnimalsIndex({match, animals}) {
 }
 
 // Use redux to connect state from store to current props
-const mapStateToProps = (state) => {
-    return {
-      animals: state.animals,
-    };
-};
+// const mapStateToProps = (state) => {
+//     return {
+//       animals: state.animals,
+//     };
+// };
 
 // Connect component to redux store
-export default connect(mapStateToProps)(AnimalsIndex)
+// export default connect(mapStateToProps)(AnimalsIndex)
