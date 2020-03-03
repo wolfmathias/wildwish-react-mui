@@ -4,7 +4,7 @@ import uuid from "uuid";
 export default function AnimalsReducer(
     state = {
         animals: [],
-        loading: false
+        // isFetching: false
     }, 
     action
 ) {
@@ -15,7 +15,7 @@ export default function AnimalsReducer(
             return {
                 // ...state, 
                 animals: [...state.animals],
-                loading: true
+                // isFetching: true
             };
         
         case 'ADD_ANIMALS':
@@ -23,7 +23,7 @@ export default function AnimalsReducer(
             return {
                 ...state, 
                 animals: state.animals.concat(action.payload),
-                loading: false
+                // isFetching: false
             };
         
         case "DELETE_ANIMAL":
