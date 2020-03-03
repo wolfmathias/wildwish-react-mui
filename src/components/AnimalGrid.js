@@ -68,4 +68,10 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(AnimalGrid)
+const mapStateToProps = (state) => {
+    return {
+        animals: state.AnimalsReducer.animals,
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AnimalGrid)

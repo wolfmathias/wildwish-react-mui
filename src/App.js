@@ -96,9 +96,9 @@ class App extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log('inMapStateToProps:', state.animals)
+  console.log('inMapStateToProps:', state)
   return {
-    animals: state.animals.animals,
+    animals: state.AnimalsReducer.animals,
   };
 };
 
