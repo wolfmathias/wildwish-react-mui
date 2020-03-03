@@ -22,7 +22,7 @@ export default function AnimalsReducer(
             console.log("adding", action.payload)
             return {
                 ...state, 
-                animals: action.payload,
+                animals: state.animals.concat(action.payload),
                 loading: false
             };
         

@@ -1,5 +1,5 @@
 export const addAnimal = (payload) => {
-    return { type: 'ADD_ANIMAL', payload };
+    return { type: 'ADD_ANIMALS', payload };
 }; 
 
 export const fetchAnimals = () => {
