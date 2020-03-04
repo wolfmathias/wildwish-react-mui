@@ -56,6 +56,7 @@ function AnimalGrid {
                 </GridListTile>
                 {renderAnimals}
             </GridList> 
+        </div>
     )
 }
 
