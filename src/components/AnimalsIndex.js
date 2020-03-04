@@ -1,7 +1,7 @@
 import React from 'react';
 import AnimalGrid from './AnimalGrid';
 import ShowAnimal from './ShowAnimal';
-import {Route} from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import NewAnimal from './NewAnimal';
 import { connect } from 'react-redux';
 import Button from '@material-ui/core'
@@ -11,10 +11,11 @@ function AnimalsIndex({match, animals}) {
 console.log({match, animals})
     return (
         <>
-       
+        <Switch>
         <Route exact path="/animals" render={routerProps => <AnimalGrid {...routerProps} animals={animals}/>} />
         <Route path={`${match.url}/new`} render={routerProps => <NewAnimal {...routerProps} animals={animals} /> }/>
-        {/* <Route path={`${match.url}/:animalId`} render={routerProps => <ShowAnimal {...routerProps} animals={animals.animals} /> }/> */}
+        <Route path={`${match.url}/:animalId`} render={routerProps => <ShowAnimal {...routerProps} animals={animals.animals} /> }/>
+        </Switch>
         
         </>
 
