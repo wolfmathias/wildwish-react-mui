@@ -37,7 +37,7 @@ function AnimalGrid(props) {
     // })
 
     console.log(props.animals)
-    if (props.animals.loading) {
+    if (props.animals.isFetching) {
         return (
             <h1>Loading...</h1>
         )
