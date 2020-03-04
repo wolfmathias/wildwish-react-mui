@@ -13,7 +13,16 @@ Animals Index renders other presentational components. These children components
 As of writing this, `<AnimalsIndex>` can switch between three different components to render depending on the path to route to.
 
 ```js
-return (
+import React from 'react';
+import AnimalGrid from './AnimalGrid';
+import ShowAnimal from './ShowAnimal';
+import { Route, Switch } from 'react-router-dom';
+import NewAnimal from './NewAnimal';
+import { connect } from 'react-redux';
+
+function AnimalsIndex({match, animals}) {
+
+    return (
         <>
         <Switch>
             <Route exact path="/animals" render={routerProps => <AnimalGrid {...routerProps} animals={animals}/>} />
@@ -22,6 +31,7 @@ return (
         </Switch>
         </>
     )
+}
 ```
 
 ## Animal Grid
@@ -216,6 +226,29 @@ ReactDOM.render(<Root store={store} />, document.getElementById('root'))
 
 The `<Root>` component contains the store as a property, and passes this down to a `<Provider>`, which manages the store by listenting to changes in the state and rerendering connected components when a change happens.
 
+```js
+import React from 'react';
+import { Provider } from 'react-redux';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { ThemeProvider } from '@material-ui/core/styles';
+import App from './App';
+import theme from './theme';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+const Root = ({ store }) => (
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+        <CssBaseline />
+        <Router>
+          <Route path="/:filter?" component={App} />
+        </Router>
+      </ThemeProvider>
+    </Provider>
+);
+
+export default Root
+```
 
 # How to use
 
