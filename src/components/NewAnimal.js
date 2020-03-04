@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-// Unique id generator
-import uuid from 'uuid'
-
 // addAnimal action for redux store
 import { addAnimal } from '../actions/animals';
 
@@ -19,7 +16,7 @@ class NewAnimal extends Component {
     // Handle by making this form a modal window and closing it when submitting
     handleOnSubmit = (event) => {
         event.preventDefault();
-        this.props.addAnimal({...this.state, id: uuid()})
+        this.props.addAnimal({...this.state})
     }
     
     // TODO: Separate form into componenents with styles
