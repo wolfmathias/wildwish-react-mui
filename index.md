@@ -8,9 +8,9 @@ The Material UI library provides us with styled components that we wrap inside o
 
 ## Animals Index
 
-Animals Index renders other presentational components. These children components are wrapped in <Route> and <Switch> components, which are imported from `react-router-dom`. 
+Animals Index renders other presentational components. These children components are wrapped in `<Route>` and `<Switch>` components, which are imported from `react-router-dom`. 
 
-As of writing this, <AnimalsIndex> can switch between three different components to render depending on the path to route to.
+As of writing this, `<AnimalsIndex>` can switch between three different components to render depending on the path to route to.
 
 ```js
 return (
@@ -53,7 +53,7 @@ function AnimalGrid {
 
 renderAnimals above would map over our 'animals' prop, wrapping each one in more GridListTile components.
 
-Also note `classes.root` in the <div> wrapper, this is using `makeStyles()` from the Material UI library to set CSS styles.
+Also note `classes.root` in the `<div>` wrapper, this is using `makeStyles()` from the Material UI library to set CSS styles.
 
 `makesStyles` creates an object that sets CSS values for the HTML that our presentational components are rendering. 'theme' is grabbing a global theme, the values of which are configured elsewhere.
 
@@ -116,7 +116,7 @@ class NewAnimal extends Component {
 export default connect(null, { addAnimal })(NewAnimal);
 ```
 
-Redux is handling the state of the app. The `connect()` function, provided by redux, is mapping `addAnimal` to <NewAnimal>'s props, which is a function that dispatches an action to `animalsReducer`.
+Redux is handling the state of the app. The `connect()` function, provided by redux, is mapping `addAnimal` to `<NewAnimal>`'s props, which is a function that dispatches an action to `animalsReducer`.
 
 # State, actions, and reducers
 
@@ -214,7 +214,7 @@ ReactDOM.render(<Root store={store} />, document.getElementById('root'))
 
 ## Root
 
-The <Root> component contains the store as a property, and passes this down to a <Provider>, which manages the store by listenting to changes in the state and rerendering connected components when a change happens.
+The `<Root>` component contains the store as a property, and passes this down to a `<Provider>`, which manages the store by listenting to changes in the state and rerendering connected components when a change happens.
 
 
 # How to use
