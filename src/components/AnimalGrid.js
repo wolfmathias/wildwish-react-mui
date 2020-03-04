@@ -8,6 +8,8 @@ import { NavLink } from 'react-router-dom';
 import DefaultImage from './default_img.jpg';
 import { connect } from 'react-redux';
 
+import { deleteAnimal } from '../actions/animals';
+
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -57,7 +59,7 @@ function AnimalGrid(props) {
                     title={animal.name}
                     subtitle={<span>{animal.species}</span>}
                     actionIcon={
-                    <IconButton onClick={() => props.delete(animal.id)} aria-label={`info about ${animal.name}`} className={classes.icon}>
+                    <IconButton onClick={() => props.deleteAnimal(animal)} aria-label={`info about ${animal.name}`} className={classes.icon}>
                         <DeleteForeverIcon />
                     </IconButton>
                     }
@@ -71,11 +73,19 @@ function AnimalGrid(props) {
 }
 
 // TODO: Move this function (and icon display) to animal show page and have edit action also
+// const mapDispatchToProps = dispatch => {
+//     return {
+//         deleteAnimal: animal => dispatch({type: "DELETE_ANIMAL", payload: animal})
+//     }
+// }
+
 const mapDispatchToProps = dispatch => {
     return {
-        delete: animal => dispatch({type: "DELETE_ANIMAL", payload: animal})
-    }
-}
+      deleteAnimal: (animal) => {
+        dispatch(deleteAnimal(animal))  // dispatch() provided by redux library
+      }
+    };
+};
 
 const mapStateToProps = (state) => {
     return {
