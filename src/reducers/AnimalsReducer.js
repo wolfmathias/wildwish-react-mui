@@ -19,7 +19,7 @@ export default function AnimalsReducer(
             };
         
         case 'ADD_ANIMALS':
-            console.log("adding", action.payload)
+            console.log("adding:", action.payload)
             return {
                 ...state, 
                 animals: state.animals.concat(action.payload),
@@ -27,13 +27,14 @@ export default function AnimalsReducer(
             };
         
         case "DELETE_ANIMAL":
-            console.log("deleting animal with id:", action.payload)
+            console.log("deleting animal:", action.payload)
             // Which of the two returns to use below? Both do same thing:
             // let idx = state.findIndex(animal => animal.id  === action.payload)
             // return [...state.slice(0, idx), ...state.slice(idx + 1)];
             return {
                 ...state,
-                animals: state.animals.filter(animal => animal.id !== action.payload)
+                animals: state.animals.filter(animal => animal.id !== action.payload.id),
+                isFetching: false
             }
 
         // Both AnimalReducer and WishesReducer respond to ADD WISH action
