@@ -16,6 +16,7 @@ class NewAnimal extends Component {
     }
     
     // TODO: have Submit redirect to either animal index or animal show page
+    // Handle by making this form a modal window and closing it when submitting
     handleOnSubmit = (event) => {
         event.preventDefault();
         this.props.addAnimal({...this.state, id: uuid()})
