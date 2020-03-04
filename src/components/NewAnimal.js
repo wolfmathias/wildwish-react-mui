@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+
+// connects component's state to redux store
 import { connect } from 'react-redux';
 
 // addAnimal action for redux store
