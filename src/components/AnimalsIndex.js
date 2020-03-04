@@ -4,7 +4,6 @@ import ShowAnimal from './ShowAnimal';
 import { Route, Switch } from 'react-router-dom';
 import NewAnimal from './NewAnimal';
 import { connect } from 'react-redux';
-import Button from '@material-ui/core'
 
 function AnimalsIndex({match, animals}) {
 //    debugger
