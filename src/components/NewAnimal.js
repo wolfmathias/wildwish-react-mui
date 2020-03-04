@@ -27,6 +27,7 @@ class NewAnimal extends Component {
         return(
             <form onSubmit={this.handleOnSubmit}>
             <h1>Form to create new animal.</h1>
+            <p>It doesn't redirect after submitting yet. Will be handled by using form modal and closing after getting a success response from the server.</p>
             <p>
                 <input
                 type="text"
