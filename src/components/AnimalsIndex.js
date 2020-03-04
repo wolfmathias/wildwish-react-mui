@@ -4,11 +4,14 @@ import ShowAnimal from './ShowAnimal';
 import {Route} from 'react-router-dom';
 import NewAnimal from './NewAnimal';
 import { connect } from 'react-redux';
+import Button from '@material-ui/core'
 
 function AnimalsIndex({match, animals}) {
 //    debugger
+console.log({match, animals})
     return (
         <>
+       
         <Route exact path="/animals" render={routerProps => <AnimalGrid {...routerProps} animals={animals}/>} />
         <Route path={`${match.url}/new`} render={routerProps => <NewAnimal {...routerProps} animals={animals} /> }/>
         {/* <Route path={`${match.url}/:animalId`} render={routerProps => <ShowAnimal {...routerProps} animals={animals.animals} /> }/> */}
