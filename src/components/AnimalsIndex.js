@@ -8,6 +8,8 @@ import Button from '@material-ui/core'
 
 function AnimalsIndex({match, animals}) {
 //    debugger
+
+// TODO: Change to ES6 class, or make parent component Animals Page that has routes for everything
 console.log({match, animals})
     return (
         <>
