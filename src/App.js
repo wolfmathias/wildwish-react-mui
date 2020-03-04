@@ -83,8 +83,7 @@ class App extends React.Component {
         <Container>
             <Route exact path="/" component={Home}/>
             {/* <Route path="/about" component={About}/> */}
-            <Route path="/animals" render={routerProps => <AnimalsIndex {...routerProps} />} addAnimal={this.props.addAnimal}/>
-            {/* <Route path="/newanimal" render={routerProps => <NewAnimal {...routerProps} animals={this.state.animals}/>} /> */}
+            <Route path="/animals" render={routerProps => <AnimalsIndex {...routerProps}/>} />
             {/* <Route path="/donations" render={routerProps => <DonationsIndex {...routerProps} donations={this.state.donations}/>} /> */}
             <Route path="/login" component={Login}/>
         </Container>
