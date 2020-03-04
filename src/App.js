@@ -11,7 +11,7 @@ import NavBar from './components/NavBar'
 import AnimalsIndex from './components/AnimalsIndex';
 import Home from './components/Home';
 import Login from './components/Login';
-import NewAnimal from './components/NewAnimal';
+import About from './components/About';
 
 // Data
 // import animals from './data/Animals';
@@ -21,6 +21,7 @@ import { fetchAnimals } from './actions/animals';
 // For router and redux
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
+
 // import { addAnimal } from './actions/animals';
 
 
@@ -82,7 +83,7 @@ class App extends React.Component {
         <NavBar/>
         <Container>
             <Route exact path="/" component={Home}/>
-            {/* <Route path="/about" component={About}/> */}
+            <Route path="/about" component={About}/>
             <Route path="/animals" render={routerProps => <AnimalsIndex {...routerProps}/>} />
             {/* <Route path="/donations" render={routerProps => <DonationsIndex {...routerProps} donations={this.state.donations}/>} /> */}
             <Route path="/login" component={Login}/>

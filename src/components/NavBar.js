@@ -36,7 +36,8 @@ export default function NavBar() {
             <Button color="inherit" component={NavLink} to="/">Wild Wish</Button>
           </Typography>
           <Button color="inherit" component={NavLink} to="/animals">Animals</Button>
-          
+          <Button color="inherit" component={NavLink} to="/about">About</Button>
+          <Button color="inherit" component={NavLink} to="/login">Login</Button>
         </Toolbar>
       </AppBar>
     </div>

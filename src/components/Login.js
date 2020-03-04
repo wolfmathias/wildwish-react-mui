@@ -18,6 +18,7 @@ class Login extends Component {
         return(
             <form onSubmit={this.handleOnSubmit}>
             <h1>This is the login page.</h1>
+            <p>It's not hooked up yet...</p>
             <p>
                 <input
                 type="text"
