@@ -21,4 +21,22 @@ export const fetchAnimals = () => {
         dispatch({ type: 'ADD_ANIMALS', payload: responseJSON })
       })
     }
-  }
+}
+
+export const postAnimal = (animal) => {
+    fetch('http://localhost:3000/animals', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+            animal: {
+                name: animal.name,
+                species: animal.species
+            }
+        })
+    })
+    // Do something with the response
+    // .then(do_something)
+}
