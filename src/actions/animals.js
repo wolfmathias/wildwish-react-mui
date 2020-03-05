@@ -1,7 +1,7 @@
 // export const addAnimal = (animal) => {
 //     return { type: 'ADD_ANIMALS', payload: animal };
 // }; 
-import uuid from 'uuid'
+// import uuid from 'uuid'
 
 export const addAnimal = (animal) => {
     return (dispatch) => {
