@@ -1,4 +1,3 @@
-import animals from '../data/Animals';
 import uuid from "uuid";
 
 export default function AnimalsReducer(
