@@ -20,8 +20,7 @@ const useStyles = makeStyles(theme => ({
       backgroundColor: theme.palette.background.paper,
     },
     gridList: {
-      width: 380
-      
+    //   width: 360
     },
 
     icon: {
@@ -45,16 +44,18 @@ function AnimalGrid(props) {
         )
     }
     return (
+        <>
+        <Button color="inherit" component={NavLink} to="/animals/new">New Animal</Button>
         <div className={classes.root}>
-            <Button color="inherit" component={NavLink} to="/animals/new">New Animal</Button>
-            <GridList cellHeight={180} className={classes.gridList}>
+            
+            <GridList cellHeight={180} className={classes.gridList} >
                 <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
                     <ListSubheader component="div">User Animals</ListSubheader>
                 </GridListTile>
                 {/* props.animals is an object like {animals: [], loading: false}, map over the nested animals array */}
                 {props.animals.animals.map((animal, idx) => (
-                <GridListTile key={animal.id} cols={1}>
-                    <a href={`/animals/${animal.id}`}><img src={animal.img || DefaultImage}  alt={animal.name} /></a>
+                <GridListTile key={animal.id} cols={1} component="a" href={`/animals/${animal.id}`}>
+                    <img src={animal.img || DefaultImage} alt={animal.name} />
                     <GridListTileBar
                     title={animal.name}
                     subtitle={<span>{animal.species}</span>}
@@ -69,16 +70,11 @@ function AnimalGrid(props) {
             </GridList>
             
         </div>
+        </>
     )
 }
 
 // TODO: Move this function (and icon display) to animal show page and have edit action also
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         deleteAnimal: animal => dispatch({type: "DELETE_ANIMAL", payload: animal})
-//     }
-// }
-
 const mapDispatchToProps = dispatch => {
     return {
       deleteAnimal: (animal) => {
