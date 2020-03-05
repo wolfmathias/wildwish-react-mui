@@ -4,7 +4,7 @@ import WishesReducer from './WishesReducer';
  
 const rootReducer = combineReducers({
   animalStore: AnimalsReducer,
-  wishes: WishesReducer
+  wishStore: WishesReducer
 });
  
 export default rootReducer;
