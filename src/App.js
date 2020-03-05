@@ -40,34 +40,14 @@ function Copyright() {
   );
 }
 
-// const donations = [
-//   {
-//     id: 1,
-//     donor_id: 1,
-//     wish_id: 1,
-//     created_at: "Time Created"
-//   },
-//   {
-//     id: 2,
-//     donor_id: 2,
-//     wish_id: 2,
-//     created_at: "Time Created"
-//   },
-//   {
-//     id: 3,
-//     donor_id: 3,
-//     wish_id: 3,
-//     created_at: "Time Created"
-//   }
-// ]
 
-// App renders navigation bar
 // If user is logged out landing page will be displayed
 class App extends React.Component {
+  // state looks something like:
   // state = {
-  //   animals: [],
-  //   // donations: donations,
-  //   wishes: []
+  //   animalStore: {animals: [], isFetching: false}
+  //   donationStore: {donations: [], isFetching: false}
+  //   wishStore: {wishes: [], isFetching: false}
   // }
   
   componentDidMount() {
