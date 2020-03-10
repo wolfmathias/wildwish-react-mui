@@ -15,7 +15,7 @@ function AnimalsIndex(props) {
         <Switch>
             <Route exact path="/animals" render={routerProps => <AnimalGrid {...routerProps} />} />
             <Route path={`${props.match.url}/new`} render={routerProps => <NewAnimal {...routerProps} /> }/>
-            <Route path={`${props.match.url}/:animalId`} render={routerProps => <ShowAnimal {...routerProps} /> }/>
+            <Route path={`${props.match.url}/:animalId`} render={routerProps => <ShowAnimal {...routerProps} animals={props.animals.animals}/> }/>
         </Switch>
         </>
     )
