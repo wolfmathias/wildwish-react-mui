@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { useParams } from "react-router-dom";
 import { Typography, Paper, Container } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
-import DefaultImage from './default_img.jpg'
+// import DefaultImage from './default_img.jpg'
 
 const useStyles = makeStyles({
   root: {
@@ -12,7 +12,7 @@ const useStyles = makeStyles({
   },
 });
 
- function ShowAnimal(props) {
+export default function ShowAnimal(props) {
     const classes = useStyles();
 
     // The <Route> that rendered this component has a path of `/topics/:animalId`
@@ -52,11 +52,11 @@ const useStyles = makeStyles({
 }
 
 // Use redux to connect state from store to current props
-const mapStateToProps = (state) => {
-    return {
-      animals: state.animalStore.animals,
-    };
-};
+// const mapStateToProps = (state) => {
+//     return {
+//       animals: state.animalStore.animals,
+//     };
+// };
 
 // Connect component to redux store
-export default connect(mapStateToProps)(ShowAnimal)
+// export default connect(mapStateToProps)(ShowAnimal)
