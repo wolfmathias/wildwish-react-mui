@@ -36,13 +36,13 @@ function AnimalGrid(props) {
     // const animalCards = props.animals.map(animal => {
     //     return <AnimalTile animal={animal} key={animal.id} />
     // })
-
+    // debugger
     console.log(props.animals)
-    if (props.animals.isFetching) {
-        return (
-            <h1>Loading...</h1>
-        )
-    }
+    // if (props.animals.isFetching) {
+    //     return (
+    //         <h1>Loading...</h1>
+    //     )
+    // }
     return (
         <>
         <Button color="inherit" component={NavLink} to="/animals/new">New Animal</Button>
@@ -53,9 +53,9 @@ function AnimalGrid(props) {
                     <ListSubheader component="div">User Animals</ListSubheader>
                 </GridListTile>
                 {/* props.animals is an object like {animals: [], loading: false}, map over the nested animals array */}
-                {props.animals.animals.map((animal, idx) => (
-                <GridListTile key={animal.id} cols={1} component="a" href={`/animals/${animal.id}`}>
-                    <img src={animal.img || DefaultImage} alt={animal.name} />
+                {props.animals.map((animal, idx) => (
+                <GridListTile key={animal.id} cols={1} >
+                    <a href={`/animals/${animal.id}`}><img src={animal.img || DefaultImage} alt={animal.name} /></a>
                     <GridListTileBar
                     title={animal.name}
                     subtitle={<span>{animal.species}</span>}
@@ -85,7 +85,7 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = (state) => {
     return {
-        animals: state.animalStore,
+        animals: state.animals,
     };
 };
 

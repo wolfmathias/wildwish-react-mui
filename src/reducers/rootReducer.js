@@ -1,10 +1,11 @@
 import { combineReducers } from "redux";
-import AnimalsReducer from './AnimalsReducer';
-import WishesReducer from './WishesReducer';
+import animals from './AnimalsReducer';
+import wishes from './WishesReducer';
  
 const rootReducer = combineReducers({
-  animalStore: AnimalsReducer,
-  wishStore: WishesReducer
+  animals,
+  wishes
+  // donationStore: DonationsReducer
 });
  
 export default rootReducer;

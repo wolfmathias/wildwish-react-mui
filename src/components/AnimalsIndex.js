@@ -15,7 +15,7 @@ function AnimalsIndex(props) {
         <Switch>
             <Route exact path="/animals" render={routerProps => <AnimalGrid {...routerProps} />} />
             <Route path={`${props.match.url}/new`} render={routerProps => <NewAnimal {...routerProps} /> }/>
-            <Route path={`${props.match.url}/:animalId`} render={routerProps => <ShowAnimal {...routerProps} animals={props.animals.animals}/> }/>
+            <Route path={`${props.match.url}/:animalId`} render={routerProps => <ShowAnimal {...routerProps} animals={props.animals}/> }/>
         </Switch>
         </>
     )
@@ -24,7 +24,7 @@ function AnimalsIndex(props) {
 // Use redux to connect state from store to current props
 const mapStateToProps = (state) => {
     return {
-      animals: state.animalStore,
+      animals: state.animals,
     };
 };
 
