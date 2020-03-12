@@ -1,9 +1,19 @@
 import React from 'react';
 import WishCardGrid from './wishcard/WishCardGrid';
-import wishes from '../data/Wishes'
+import { connect }from 'react-redux';
+// import wishes from '../data/Wishes'
 
-export default function Home() {
+function Home(props) {
     return (
-        <WishCardGrid wishes={wishes} />
+        <WishCardGrid wishes={props.wishes} />
     )
 }
+
+const mapStateToProps = (state) => {
+    console.log('inMapStateToProps:', state)
+    return {
+      wishes: state.wishes
+    };
+  };
+
+  export default connect(mapStateToProps)(Home)

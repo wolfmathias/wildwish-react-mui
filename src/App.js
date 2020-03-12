@@ -13,19 +13,19 @@ import Home from './components/Home';
 import Login from './components/Login';
 import About from './components/About';
 
-// Data
+// Static data
 // import animals from './data/Animals';
 // import wishes from './data/Wishes';
+
+// Actions
 import { fetchAnimals } from './actions/animals';
+import { fetchWishes } from './actions/wishes';
 
 // For router and redux
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 // import { addAnimal } from './actions/animals';
-
-
-
 
 function Copyright() {
   return (
@@ -53,6 +53,8 @@ class App extends React.Component {
   componentDidMount() {
     console.log(this.props)
     this.props.fetchAnimals()
+    this.props.fetchWishes()
+    // fetchWishes
   }
 
   render() {
@@ -78,17 +80,19 @@ class App extends React.Component {
 const mapStateToProps = (state) => {
   console.log('inMapStateToProps:', state)
   return {
-    animals: state.animalStore,
+    animals: state.animals,
+    wishes: state.wishes
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchAnimals: () => dispatch(fetchAnimals())
+    fetchAnimals: () => dispatch(fetchAnimals()),
+    fetchWishes: () => dispatch(fetchWishes())
   }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
 
 // Below does same thing as above:
-// export default connect(mapStateToProps, { fetchAnimals })(App);
+// export default connect(mapStateToProps, { fetchAnimals, fetchWishes })(App);
