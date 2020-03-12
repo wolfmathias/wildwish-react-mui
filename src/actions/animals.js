@@ -1,6 +1,4 @@
-// export const addAnimal = (animal) => {
-//     return { type: 'ADD_ANIMALS', payload: animal };
-// }; 
+// Generate a unique id for every animal
 // import uuid from 'uuid'
 
 export const addAnimal = (animal) => {
@@ -54,10 +52,7 @@ export const deleteAnimal = (animal) => {
     }
 }
 
-// export const addAnimalOk = () => ({
-//     type: "ADD_ANIMAL_OK"
-// });
-  
+// How to handle errors when POSTing animal?
 // export const addAnimalFailed = (err) => ({
 //     type: "ADD_ANIMAL_FAILED",
 //     payload: err
