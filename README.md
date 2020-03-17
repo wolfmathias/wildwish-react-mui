@@ -8,6 +8,14 @@ The individual wishes are available to view, and displayed publicly as a large i
 
 Users are directed to a button to donate, and the amount suggested is programmatically set based on previous amount donated, amount funded, and the total to complete funding.
 
+## Contributing
+
+See planned features and mechanics for builds to contribute, PRs for other features are welcome as well. 
+
+Feel free to change things for performance, security, or style reasons.
+
+Please comment well :)
+
 ## Planned features and mechanics
 
 Full CRUD actions for zookeepers to add animals and keep a wishlist for each one.
