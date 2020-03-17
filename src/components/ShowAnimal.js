@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 import { useParams } from "react-router-dom";
 import { Typography, Paper, Container } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
