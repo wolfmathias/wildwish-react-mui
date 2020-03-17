@@ -3,7 +3,7 @@
 
 export const addAnimal = (animal) => {
     return (dispatch) => {
-        dispatch({ type: 'LOADING_ANIMALS' })
+        dispatch({ type: 'ANIMAL_LOAD_START' })
         fetch('http://localhost:3001/animals', {
             method: 'POST',
             headers: {
@@ -22,13 +22,14 @@ export const addAnimal = (animal) => {
         .then(responseJSON => {
             console.log("Posted to the server!")
             dispatch({ type: 'ADD_ANIMALS', payload: responseJSON })
+            dispatch( { type: 'ANIMAL_LOAD_END' })
         })
     }
 }
 
 export const deleteAnimal = (animal) => {
     return (dispatch) => {
-        dispatch({ type: 'LOADING_ANIMALS' })
+        dispatch({ type: 'ANIMAL_LOAD_START' })
         console.log("sending delete request for:", animal)
         fetch(`http://localhost:3001/animals/${animal.id}`, {
             method: 'DELETE',
@@ -48,6 +49,7 @@ export const deleteAnimal = (animal) => {
         .then(responseJSON => {
             console.log("Posted to the server!")
             dispatch({ type: 'DELETE_ANIMAL', payload: responseJSON })
+            dispatch({ type: 'ANIMAL_LOAD_END' })
         })
     }
 }
@@ -60,12 +62,13 @@ export const deleteAnimal = (animal) => {
 
 export const fetchAnimals = () => {
     return (dispatch) => {
-      dispatch({ type: 'LOADING_ANIMALS'})
+      dispatch({ type: 'ANIMAL_LOAD_START'})
       fetch('http://localhost:3001/animals')
       .then(response => response.json())
       .then(responseJSON => {
         console.log(responseJSON)
         dispatch({ type: 'ADD_ANIMALS', payload: responseJSON })
+        dispatch({ type: 'ANIMAL_LOAD_END'})
       })
     }
 }
