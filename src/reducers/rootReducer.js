@@ -1,10 +1,12 @@
 import { combineReducers } from "redux";
 import animals from './AnimalsReducer';
 import wishes from './WishesReducer';
+import loadStatus from './manageLoading'
  
 const rootReducer = combineReducers({
   animals,
-  wishes
+  wishes,
+  loadStatus
   // donationStore: DonationsReducer
 });
  
