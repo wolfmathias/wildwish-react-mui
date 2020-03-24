@@ -30,7 +30,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 // TODO: Add dynamic NabBar Title based on route
-// TODO: remove 'New Animal' button. Nest inside animals page instead
 export default function NavBar() {
   const classes = useStyles();
 
