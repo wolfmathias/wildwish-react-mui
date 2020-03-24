@@ -66,12 +66,23 @@ export default function NavBar() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {['About', 'For Zookeepers', 'Animal Stories'].map((text, index) => (
-          <ListItem button key={text}>
-            {/* <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon> */}
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+        
+        <ListItem button component={NavLink} to="/">
+          <ListItemText primary='Home' />
+        </ListItem>
+
+        <ListItem button component={NavLink} to="/about">
+          <ListItemText primary='About' />
+        </ListItem>
+        
+        <ListItem button component={NavLink} to="/about">
+          <ListItemText primary='For Zookeepers' />
+        </ListItem>
+        
+        <ListItem button component={NavLink} to="/about">
+          <ListItemText primary='Animal Stories' />
+        </ListItem>
+
       </List>
       <Divider />
       <List>
