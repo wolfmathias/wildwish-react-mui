@@ -6,8 +6,6 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
 import { NavLink } from 'react-router-dom';
 
 import clsx from 'clsx';
@@ -16,12 +14,8 @@ import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
 
-import AccountCircle from '@material-ui/icons/AccountCircle';
+import ListItemText from '@material-ui/core/ListItemText';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -42,17 +36,13 @@ export default function NavBar() {
 
 
   const [state, setState] = React.useState({
-    top: false,
-    left: false,
-    bottom: false,
-    right: false,
+    left: false
   });
 
   const toggleDrawer = (anchor, open) => event => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;
     }
-
     setState({ ...state, [anchor]: open });
   };
 
@@ -103,8 +93,8 @@ export default function NavBar() {
           <IconButton  edge="start" className={classes.menuButton} color="inherit" aria-label="menu" aria-controls="menu" aria-haspopup="true" >
             <MenuIcon onClick={toggleDrawer("left", true)} aria-controls="menu" aria-haspopup="true" />
             <Drawer anchor='left' open={state['left']} onClose={toggleDrawer('left', false)}>
-                  {list('left')}
-                </Drawer>
+              {list('left')}
+            </Drawer>
           </IconButton>
           <Typography variant="h6" className={classes.title}> 
             <Button color="inherit" component={NavLink} to="/">Wild Wish</Button>
