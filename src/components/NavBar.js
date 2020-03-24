@@ -89,12 +89,12 @@ export default function NavBar() {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton  edge="start" className={classes.menuButton} color="inherit" aria-label="menu" aria-controls="menu" aria-haspopup="true" >
-            <MenuIcon onClick={toggleDrawer("left", true)} aria-controls="menu" aria-haspopup="true" />
-            <Drawer anchor='left' open={state['left']} onClose={toggleDrawer('left', false)}>
+          <IconButton onClick={toggleDrawer("left", true)} edge="start" className={classes.menuButton} color="inherit" aria-label="menu" aria-controls="menu" aria-haspopup="true" >
+            <MenuIcon aria-controls="menu" aria-haspopup="true" />
+          </IconButton>
+          <Drawer anchor='left' open={state['left']} onClose={toggleDrawer('left', false)}>
               {list('left')}
             </Drawer>
-          </IconButton>
           <Typography variant="h6" className={classes.title}> 
             <Button color="inherit" component={NavLink} to="/">Wild Wish</Button>
           </Typography>
