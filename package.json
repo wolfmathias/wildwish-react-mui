@@ -12,6 +12,7 @@
     "@material-ui/core": "latest",
     "@material-ui/icons": "^4.9.1",
     "clsx": "latest",
+    "formik": "^2.1.4",
     "react": "latest",
     "react-dom": "latest",
     "react-redux": "^7.2.0",
