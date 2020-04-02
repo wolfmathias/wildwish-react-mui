@@ -13,6 +13,7 @@
     "@material-ui/icons": "^4.9.1",
     "clsx": "latest",
     "formik": "^2.1.4",
+    "formik-material-ui": "^2.0.0-beta.1",
     "react": "latest",
     "react-dom": "latest",
     "react-redux": "^7.2.0",
@@ -20,7 +21,8 @@
     "react-scripts": "latest",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "yup": "^0.28.3"
   },
   "browserslist": {
     "production": [
