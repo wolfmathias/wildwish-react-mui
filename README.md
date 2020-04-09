@@ -8,7 +8,9 @@ The individual wishes are available to view, and displayed publicly as a large i
 
 Users are directed to a button to donate, and the amount suggested is programmatically set based on previous amount donated, amount funded, and the total to complete funding.
 
-## Contributing
+# Contributing
+
+I need help!
 
 See planned features and mechanics for builds to contribute, PRs for other features are welcome as well. 
 
@@ -16,7 +18,11 @@ Feel free to change things for performance, security, or style reasons.
 
 Please comment well :)
 
-## Planned features and mechanics
+# Planned features and mechanics
+
+## Front page and main user interaction
+
+The home page will display a scrolling list of recent pictures and animated gifs of animals that have been uploaded by their zookeepers, displayed as cards with minimal info and a button to sponsor that animal. Each item will also link to the animal's page, which will have a short bio and more photos/videos of that animal.
 
 Full CRUD actions for zookeepers to add animals and keep a wishlist for each one.
 
@@ -28,11 +34,11 @@ Users with accounts can view a list of all current wishes (grouped by animal), a
 
 Main page displays featured wishes, sorted using various factors (funding remaining, last donation, physical proximity to user, etc.)
 
+# Breakdown of components
+
 ## Material UI 
 
 The Material UI library provides us with styled components that we wrap inside of other components. These simply need to be imported, then they can be rendered inside the parent components.
-
-# Breakdown of components
 
 ## Animals Index
 
@@ -155,7 +161,7 @@ class NewAnimal extends Component {
 export default connect(null, { addAnimal })(NewAnimal);
 ```
 
-Redux is handling the state of the app. The `connect()` function, provided by redux, is mapping `addAnimal` to `<NewAnimal>`'s props, which is a function that dispatches an action to `animalsReducer`.
+Redux is handling the state of the app. The `connect()` hook provided by redux is mapping `addAnimal` to `<NewAnimal>`'s props, which is a function that dispatches an action to `animalsReducer`.
 
 # State, actions, and reducers
 
