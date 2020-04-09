@@ -10,13 +10,7 @@ export const addAnimal = (animal) => {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             },
-            body: JSON.stringify({
-                animal: {
-                    // id: uuid(),
-                    name: animal.name,
-                    species: animal.species
-                }
-            })
+            body: JSON.stringify({animal})
         })
         .then(response => response.json())
         .then(responseJSON => {
