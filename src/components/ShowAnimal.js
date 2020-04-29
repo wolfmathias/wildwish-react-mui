@@ -36,6 +36,9 @@ export default function ShowAnimal(props) {
             <Typography variant="subtitle2" >
                 {animal.species}
             </Typography>
+            <Typography variant="body1">
+                {animal.bio}
+            </Typography>
             <Typography variant="body1" >
                 This is the animal's show page. This page will include the picture, bio, and a list of active and fulfilled wishes.
             </Typography>
