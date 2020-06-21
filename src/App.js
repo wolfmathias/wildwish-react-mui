@@ -58,7 +58,7 @@ class App extends React.Component {
   }
 
   render() {
-   console.log(this.props)
+  //  console.log(this.props)
     return (
       <>
       <Router>
@@ -78,7 +78,7 @@ class App extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log('inMapStateToProps:', state)
+  // console.log('inMapStateToProps:', state)
   return {
     animals: state.animals,
     wishes: state.wishes
