@@ -37,7 +37,7 @@ function AnimalGrid(props) {
     //     return <AnimalTile animal={animal} key={animal.id} />
     // })
     // debugger
-    console.log(props.animals)
+    // console.log(props.animals)
     // if (props.animals.isFetching) {
     //     return (
     //         <h1>Loading...</h1>
