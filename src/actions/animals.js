@@ -14,7 +14,7 @@ export const addAnimal = (animal) => {
         })
         .then(response => response.json())
         .then(responseJSON => {
-            console.log("Posted to the server!")
+            // console.log("Posted to the server!")
             dispatch({ type: 'ADD_ANIMALS', payload: responseJSON })
             dispatch( { type: 'ANIMAL_LOAD_END' })
         })
@@ -41,7 +41,6 @@ export const deleteAnimal = (animal) => {
         })
         .then(response => response.json())
         .then(responseJSON => {
-            console.log("Posted to the server!")
             dispatch({ type: 'DELETE_ANIMAL', payload: responseJSON })
             dispatch({ type: 'ANIMAL_LOAD_END' })
         })
@@ -60,7 +59,7 @@ export const fetchAnimals = () => {
       fetch('http://localhost:3001/animals')
       .then(response => response.json())
       .then(responseJSON => {
-        console.log(responseJSON)
+        // console.log(responseJSON)
         dispatch({ type: 'ADD_ANIMALS', payload: responseJSON })
         dispatch({ type: 'ANIMAL_LOAD_END'})
       })
