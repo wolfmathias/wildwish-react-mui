@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
-import { Container, Paper, Typography } from '@material-ui/core';
+import { Container, Paper, Typography, TextField, Box } from '@material-ui/core';
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
 
 import { Formik, Form, Field } from 'formik';
 import { Button, LinearProgress } from '@material-ui/core';
-import { TextField } from 'formik-material-ui';
+
 
 // Temp secret key while building login form
 const GOOGLE_OAUTH_ID = process.env.REACT_APP_DEV_GOOGLE_OAUTH_ID;
@@ -15,24 +15,19 @@ const GOOGLE_OAUTH_KEY = process.env.REACT_APP_DEV_GOOGLE_OAUTH_KEY
 
 // styles copied from example form to play with
 const useStyles = makeStyles((theme) => ({
-    paper: {
+    
+    login: {
       marginTop: theme.spacing(5),
+      padding: '2rem',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
     },
-    avatar: {
-      margin: theme.spacing(1),
-      backgroundColor: theme.palette.secondary.main,
-    },
     form: {
-      width: '100%', // Fix IE 11 issue.
-      marginTop: theme.spacing(3),
-      alignItems: 'center'
-    },
-    submit: {
-      margin: theme.spacing(3, 0, 2),
-    },
+      width: '100%',
+      marginTop: theme.spacing(1),
+      alignItems: 'center',
+    }
   }));
 
 
@@ -48,8 +43,9 @@ export default function Login() {
       }
 
     return (
-        <Container>
-            <Paper elevation={1} className={classes.paper}>
+       <Container>
+            <Paper elevation={1} >
+                <div className={classes.login}>
                 <GoogleLogin 
                     clientId={GOOGLE_OAUTH_ID}
                     buttonText="Continue with Google"
@@ -57,19 +53,25 @@ export default function Login() {
                     onFailure={responseGoogle}
                     cookiePolicy={'single_host_origin'}
                 />
+                <br />
                 <FacebookLogin
                     appId="554005682058138"
-                    buttonText="Continue with Facebook"
+                    textButton="Continue with Facebook"
+                    size="medium"
                     autoLoad={false}
                     fields="name,email,picture"
                     callback={responseFacebook} 
                 />
+                <br />
                 <Typography>Or continue with email</Typography>
-                
-            </Paper>
-   
-            <Paper elevation={1} className={classes.paper}>
-
+                <form >
+                    <TextField fullWidth id="email" name="email" label="Email" variant="outlined" required/>
+                    <TextField fullWidth id="password" name="password" type="password" label="Password" variant="outlined" required style={{ marginTop: 10 }}/>
+                    <Button type="submit" color="primary" variant="outlined">
+                        Login
+                    </Button>
+                </form>
+                </div>
             </Paper>
         </Container>
     )
