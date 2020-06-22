@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
-import { Container, Paper, Typography, TextField, Box } from '@material-ui/core';
+import { Container, Paper, Typography, TextField, Grid, Link, Button } from '@material-ui/core';
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
 
 import { Formik, Form, Field } from 'formik';
-import { Button, LinearProgress } from '@material-ui/core';
 
 
 // Temp secret key while building login form
@@ -63,14 +62,22 @@ export default function Login() {
                     callback={responseFacebook} 
                 />
                 <br />
-                <Typography>Or continue with email</Typography>
+                <Typography>Or continue with email:</Typography>
                 <form >
                     <TextField fullWidth id="email" name="email" label="Email" variant="outlined" required/>
                     <TextField fullWidth id="password" name="password" type="password" label="Password" variant="outlined" required style={{ marginTop: 10 }}/>
                     <Button type="submit" color="primary" variant="outlined">
-                        Login
+                        Submit
                     </Button>
                 </form>
+                <br />
+                <Grid container justify="flex-end">
+                    <Grid item>
+                        <Link href="#" variant="body2">
+                            Create an account
+                        </Link>
+                    </Grid>
+                </Grid>
                 </div>
             </Paper>
         </Container>
