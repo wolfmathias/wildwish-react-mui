@@ -14,7 +14,7 @@ export const loginUser = (user) => {
         .then(responseJSON => {
             // console.log("Posted to the server!")
             dispatch({ type: 'LOGIN_USER', payload: responseJSON })
-            dispatch( { type: 'USER_LOGIN_END })
+            dispatch( { type: 'USER_LOGIN_END' })
         })
     }
 }
