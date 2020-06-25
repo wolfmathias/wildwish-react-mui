@@ -10,7 +10,7 @@ import * as Yup from 'yup';
 import { connect } from 'react-redux';
 
 // addAnimal action for redux store
-import { addAnimal } from '../actions/animals';
+import { addAnimal } from '../actions/animalActions';
 import { TextField, Button } from '@material-ui/core';
 
 class NewAnimal extends Component {
