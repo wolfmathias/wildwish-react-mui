@@ -1,6 +1,11 @@
 // copied from add animal action
 
+
 export const loginUser = (username, password) => {
+// TODOs:
+// store USER object in Redux store
+// set USER in browser's localStorage (same as session?)
+    
     const LOGIN_URL = 'http://localhost:3001/users/sign_in'
     const LOGIN_OPTIONS = {
         method: 'POST',
