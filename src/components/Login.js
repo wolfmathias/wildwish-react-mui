@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
 import { Container, Paper, Typography, TextField, Grid, Link, Button } from '@material-ui/core';
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
+
+import { loginUser } from '../actions/userActions'
 
 import { Formik, Form, Field } from 'formik';
 
@@ -31,15 +33,30 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-export default function Login() {
+function Login() {
     const classes = useStyles();
-
+    const [state, setState] = useState()
     const responseGoogle = (response) => {
         console.log(response);
     }
     const responseFacebook = (response) => {
         console.log(response);
-      }
+    }
+
+    const handleInputChange = (event) => {
+        setState({
+            [event.target.id]: event.target.value
+        });
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log(state);
+        const { username, password } = state;
+        if (username && password) {
+            loginUser(username, password);
+        }
+    }
 
     return (
        <Container>
@@ -63,9 +80,9 @@ export default function Login() {
                 />
                 <br />
                 <Typography>Or continue with email:</Typography>
-                <form >
-                    <TextField fullWidth id="email" name="email" label="Email" variant="outlined" required/>
-                    <TextField fullWidth id="password" name="password" type="password" label="Password" variant="outlined" required style={{ marginTop: 10 }}/>
+                <form name="login" onSubmit={handleSubmit}>
+                    <TextField fullWidth id="email" name="email" label="Email" variant="outlined" required onChange={handleInputChange}/>
+                    <TextField fullWidth id="password" name="password" type="password" label="Password" variant="outlined" required onChange={handleInputChange} style={{ marginTop: 10 }}/>
                     <Button type="submit" color="primary" variant="outlined">
                         Submit
                     </Button>
@@ -83,6 +100,8 @@ export default function Login() {
         </Container>
     )
 }
+
+export default connect(null, { loginUser })(Login);
 
 // class Login extends Component {
    
