@@ -18,8 +18,8 @@ import About from './components/About';
 // import wishes from './data/Wishes';
 
 // Actions
-import { fetchAnimals } from './actions/animals';
-import { fetchWishes } from './actions/wishes';
+import { fetchAnimals } from './actions/animalActions';
+import { fetchWishes } from './actions/wishActions';
 
 // For router and redux
 import { BrowserRouter as Router, Route } from 'react-router-dom';

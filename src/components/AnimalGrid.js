@@ -8,7 +8,7 @@ import { NavLink } from 'react-router-dom';
 import DefaultImage from './default_img.jpg';
 import { connect } from 'react-redux';
 
-import { deleteAnimal } from '../actions/animals';
+import { deleteAnimal } from '../actions/animalActions';
 
 
 const useStyles = makeStyles(theme => ({
