@@ -1,13 +1,13 @@
   
 export default function manageUsers(state = {
-    users: [],
+    user: {},
   }, action){
     switch (action.type) {
-      case 'ADD_USER':
-        console.log('adding ', action.user);
+      case 'LOGIN_USER':
+        console.log('Logging in ', action.user);
         return {
           ...state,
-          users: [...state.users, action.user]
+          user: action.payload
         }
   
       default:
