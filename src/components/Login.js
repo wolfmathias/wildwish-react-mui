@@ -35,7 +35,8 @@ const useStyles = makeStyles((theme) => ({
 
 function Login() {
     const classes = useStyles();
-    const [state, setState] = useState()
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
     const responseGoogle = (response) => {
         console.log(response);
     }
@@ -43,18 +44,24 @@ function Login() {
         console.log(response);
     }
 
-    const handleInputChange = (event) => {
-        setState({
+    const handleEmailChange = (event) => {
+        setEmail({
+            [event.target.id]: event.target.value
+        });
+    }
+
+    const handlePasswordChange = (event) => {
+        setPassword({
             [event.target.id]: event.target.value
         });
     }
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(state);
-        const { username, password } = state;
-        if (username && password) {
-            loginUser(username, password);
+        console.log(email, password);
+        
+        if (email && password) {
+            loginUser(email, password);
         }
     }
 
@@ -81,8 +88,8 @@ function Login() {
                 <br />
                 <Typography>Or continue with email:</Typography>
                 <form name="login" onSubmit={handleSubmit}>
-                    <TextField fullWidth id="email" name="email" label="Email" variant="outlined" required onChange={handleInputChange}/>
-                    <TextField fullWidth id="password" name="password" type="password" label="Password" variant="outlined" required onChange={handleInputChange} style={{ marginTop: 10 }}/>
+                    <TextField fullWidth id="email" name="email" label="Email" variant="outlined" required onChange={handleEmailChange}/>
+                    <TextField fullWidth id="password" name="password" type="password" label="Password" variant="outlined" required onChange={handlePasswordChange} style={{ marginTop: 10 }}/>
                     <Button type="submit" color="primary" variant="outlined">
                         Submit
                     </Button>
