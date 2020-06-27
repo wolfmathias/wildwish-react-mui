@@ -45,15 +45,15 @@ function Login() {
     }
 
     const handleEmailChange = (event) => {
-        setEmail({
-            [event.target.id]: event.target.value
-        });
+        setEmail(
+            event.target.value
+        );
     }
 
     const handlePasswordChange = (event) => {
-        setPassword({
-            [event.target.id]: event.target.value
-        });
+        setPassword(
+            event.target.value
+        );
     }
 
     const handleSubmit = (event) => {
