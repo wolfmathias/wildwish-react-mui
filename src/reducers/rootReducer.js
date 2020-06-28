@@ -1,9 +1,11 @@
 import { combineReducers } from "redux";
+import user from './ManageUsers';
 import animals from './AnimalsReducer';
 import wishes from './WishesReducer';
 import loadStatus from './manageLoading'
  
 const rootReducer = combineReducers({
+  user,
   animals,
   wishes,
   loadStatus
