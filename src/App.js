@@ -71,7 +71,7 @@ class App extends React.Component {
             <Route path="/login" component={Login}/>
         </Container>
       </Router>
-      <Copyright/>
+      {/* <Copyright/> */}
       </>
     )
   }
