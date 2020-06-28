@@ -13,6 +13,7 @@ import { Formik, Form, Field } from 'formik';
 // Temp secret key while building login form
 const GOOGLE_OAUTH_ID = process.env.REACT_APP_DEV_GOOGLE_OAUTH_ID;
 const GOOGLE_OAUTH_KEY = process.env.REACT_APP_DEV_GOOGLE_OAUTH_KEY
+const FACEBOOK_APP_ID = "554005682058138"
 
 // styles copied from example form to play with
 const useStyles = makeStyles((theme) => ({
@@ -78,18 +79,34 @@ function Login(props) {
                 />
                 <br />
                 <FacebookLogin
-                    appId="554005682058138"
+                    appId={FACEBOOK_APP_ID}
                     textButton="Continue with Facebook"
                     size="medium"
-                    autoLoad={false}
-                    fields="name,email,picture"
+                    fields="name,email"
                     callback={responseFacebook} 
                 />
                 <br />
                 <Typography>Or continue with email:</Typography>
                 <form name="login" onSubmit={handleSubmit}>
-                    <TextField fullWidth id="email" name="email" label="Email" variant="outlined" required onChange={handleEmailChange}/>
-                    <TextField fullWidth id="password" name="password" type="password" label="Password" variant="outlined" required onChange={handlePasswordChange} style={{ marginTop: 10 }}/>
+                    <TextField 
+                        fullWidth 
+                        id="email"
+                        name="email"
+                        label="Email"
+                        variant="outlined"
+                        required onChange={handleEmailChange}
+                    />
+                    <TextField
+                        fullWidth
+                        id="password"
+                        name="password"
+                        type="password"
+                        label="Password"
+                        variant="outlined"
+                        required
+                        onChange={handlePasswordChange}
+                        style={{ marginTop: 10 }}
+                    />
                     <Button type="submit" color="primary" variant="outlined">
                         Submit
                     </Button>
