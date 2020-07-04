@@ -40,7 +40,6 @@ class Login {
     // const [email, setEmail] = useState();
     // const [password, setPassword] = useState();
 
-    
     // handleEmailChange = (event) => {
     //     setEmail(
     //         event.target.value
@@ -52,6 +51,15 @@ class Login {
     //         event.target.value
     //     );
     // }
+
+
+    
+    componentDidMount() {
+        // Request access token from server
+        // Make GET request to /users/sign_in
+        // Grab CSRF token from response header
+        // Include in header of POST request to /users/sign_in
+    }
                     
     responseGoogle = (response) => {
         console.log(response);
