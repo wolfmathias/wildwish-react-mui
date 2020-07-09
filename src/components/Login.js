@@ -33,116 +33,115 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 
-class Login {
-    classes = useStyles();
+function Login() {
+    const classes = useStyles();
 
     // React hooks for state
-    // const [email, setEmail] = useState();
-    // const [password, setPassword] = useState();
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
 
-    // handleEmailChange = (event) => {
-    //     setEmail(
-    //         event.target.value
-    //     );
-    // }
+    const handleEmailChange = (event) => {
+        setEmail(
+            event.target.value
+        );
+    }
             
-    // handlePasswordChange = (event) => {
-    //     setPassword(
-    //         event.target.value
-    //     );
-    // }
+    const handlePasswordChange = (event) => {
+        setPassword(
+            event.target.value
+        );
+    }
 
+    // Or use state with class component
+    // handleInputChange = (event) => {
+    //     this.setState({
+    //         [event.target.id]: event.target.value
+    //     })
+    // }
 
     
-    componentDidMount() {
-        // Request access token from server
-        // Make GET request to /users/sign_in
-        // Grab CSRF token from response header
-        // Include in header of POST request to /users/sign_in
-    }
+    // componentDidMount() {
+    //     // Request access token from server
+    //     // Make GET request to /users/sign_in
+    //     // Grab CSRF token from response header
+    //     // Include in header of POST request to /users/sign_in
+    // }
                     
-    responseGoogle = (response) => {
+    const responseGoogle = (response) => {
         console.log(response);
     }
 
-    responseFacebook = (response) => {
+    const responseFacebook = (response) => {
         console.log(response);
     }
 
-    handleInputChange = (event) => {
-        this.setState({
-            [event.target.id]: event.target.value
-        })
-    }
-
-    handleSubmit = (event) => {
+    const handleSubmit = (event) => {
         event.preventDefault();
         console.log(email, password);
         
         if (email && password) {
-            props.loginUser(email, password);
+            loginUser(email, password);
         }
     }
 
-    render() {
-        return (
+
+    return (
         <Container>
-                <Paper elevation={1} >
-                    <div className={classes.login}>
-                    <GoogleLogin 
-                        clientId={GOOGLE_OAUTH_ID}
-                        buttonText="Continue with Google"
-                        onSuccess={responseGoogle}
-                        onFailure={responseGoogle}
-                        cookiePolicy={'single_host_origin'}
+            <Paper elevation={1} >
+                <div className={classes.login}>
+                <GoogleLogin 
+                    clientId={GOOGLE_OAUTH_ID}
+                    buttonText="Continue with Google"
+                    onSuccess={responseGoogle}
+                    onFailure={responseGoogle}
+                    cookiePolicy={'single_host_origin'}
+                />
+                <br />
+                <FacebookLogin
+                    appId={FACEBOOK_APP_ID}
+                    textButton="Continue with Facebook"
+                    size="medium"
+                    fields="name,email"
+                    callback={responseFacebook} 
+                />
+                <br />
+                <Typography>Or continue with email:</Typography>
+                <form name="login" onSubmit={handleSubmit}>
+                    <TextField 
+                        fullWidth 
+                        id="email"
+                        name="email"
+                        label="Email"
+                        variant="outlined"
+                        required onChange={handleEmailChange}
                     />
-                    <br />
-                    <FacebookLogin
-                        appId={FACEBOOK_APP_ID}
-                        textButton="Continue with Facebook"
-                        size="medium"
-                        fields="name,email"
-                        callback={responseFacebook} 
+                    <TextField
+                        fullWidth
+                        id="password"
+                        name="password"
+                        type="password"
+                        label="Password"
+                        variant="outlined"
+                        required
+                        onChange={handlePasswordChange}
+                        style={{ marginTop: 10 }}
                     />
-                    <br />
-                    <Typography>Or continue with email:</Typography>
-                    <form name="login" onSubmit={handleSubmit}>
-                        <TextField 
-                            fullWidth 
-                            id="email"
-                            name="email"
-                            label="Email"
-                            variant="outlined"
-                            required onChange={handleEmailChange}
-                        />
-                        <TextField
-                            fullWidth
-                            id="password"
-                            name="password"
-                            type="password"
-                            label="Password"
-                            variant="outlined"
-                            required
-                            onChange={handlePasswordChange}
-                            style={{ marginTop: 10 }}
-                        />
-                        <Button type="submit" color="primary" variant="outlined">
-                            Submit
-                        </Button>
-                    </form>
-                    <br />
-                    <Grid container justify="flex-end">
-                        <Grid item>
-                            <Link href="#" variant="body2">
-                                Create an account
-                            </Link>
-                        </Grid>
+                    <Button type="submit" color="primary" variant="outlined">
+                        Submit
+                    </Button>
+                </form>
+                <br />
+                <Grid container justify="flex-end">
+                    <Grid item>
+                        <Link href="#" variant="body2">
+                            Create an account
+                        </Link>
                     </Grid>
-                    </div>
-                </Paper>
-            </Container>
-        )
-    }
+                </Grid>
+                </div>
+            </Paper>
+        </Container>
+    )
 }
 
 export default connect(null, { loginUser })(Login);
