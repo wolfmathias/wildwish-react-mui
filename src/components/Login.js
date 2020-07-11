@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 
-function Login() {
+function Login(props) {
     const classes = useStyles();
 
     // React hooks for state
@@ -80,7 +80,7 @@ function Login() {
         console.log(email, password);
         
         if (email && password) {
-            loginUser(email, password);
+            props.loginUser(email, password);
         }
     }
 
