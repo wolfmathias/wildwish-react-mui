@@ -5,7 +5,7 @@ import { Container, Paper, Typography, TextField, Grid, Link, Button } from '@ma
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
 
-import { loginUser } from '../actions/userActions';
+import { createUser } from '../actions/userActions';
 
 // Temp secret key while building login form
 const GOOGLE_OAUTH_ID = process.env.REACT_APP_DEV_GOOGLE_OAUTH_ID;
@@ -121,4 +121,4 @@ function CreateUser(props) {
         </Container>
     )
 }
-export default connect(null, { loginUser })(CreateUser);
+export default connect(null, { createUser })(CreateUser);
