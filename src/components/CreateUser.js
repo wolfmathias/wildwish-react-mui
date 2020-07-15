@@ -5,7 +5,7 @@ import { Container, Paper, Typography, TextField, Grid, Link, Button } from '@ma
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
 
-import { createUser } from '../actions/userActions';
+import { addUser } from '../actions/userActions';
 
 // Temp secret key while building login form
 const GOOGLE_OAUTH_ID = process.env.REACT_APP_DEV_GOOGLE_OAUTH_ID;
@@ -55,7 +55,7 @@ class UserForm extends Component {
         event.preventDefault()
         
         if (email && password) {
-            props.loginUser(email, password, action);
+            props.addUser(email, password, action);
         }
     }
 
@@ -64,23 +64,6 @@ class UserForm extends Component {
             <Container>
                 <Paper elevation={1} >
                     <div className={classes.login}>
-                    <GoogleLogin 
-                        clientId={GOOGLE_OAUTH_ID}
-                        buttonText="Continue with Google"
-                        onSuccess={responseGoogle}
-                        onFailure={responseGoogle}
-                        cookiePolicy={'single_host_origin'}
-                    />
-                    <br />
-                    <FacebookLogin
-                        appId={FACEBOOK_APP_ID}
-                        textButton="Continue with Facebook"
-                        size="medium"
-                        fields="name,email"
-                        callback={responseFacebook} 
-                    />
-                    <br />
-                    <Typography>Or continue with email:</Typography>
                     <form name="login" onSubmit={handleSubmit}>
                         <TextField 
                             fullWidth 
@@ -105,14 +88,6 @@ class UserForm extends Component {
                             Submit
                         </Button>
                     </form>
-                    <br />
-                    <Grid container justify="flex-end">
-                        <Grid item>
-                            <Link href="#" variant="body2">
-                                Create an account
-                            </Link>
-                        </Grid>
-                    </Grid>
                     </div>
                 </Paper>
             </Container>
