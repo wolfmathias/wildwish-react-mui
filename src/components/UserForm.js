@@ -1,40 +1,10 @@
-import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React from 'react';
 import { connect } from 'react-redux';
-import { Container, Paper, Typography, TextField, Grid, Link, Button } from '@material-ui/core';
-import GoogleLogin from 'react-google-login';
-import FacebookLogin from 'react-facebook-login';
+import { Container, Paper, TextField, Button } from '@material-ui/core';
 
 import { addUser } from '../actions/userActions';
 
-// Temp secret key while building login form
-const GOOGLE_OAUTH_ID = process.env.REACT_APP_DEV_GOOGLE_OAUTH_ID;
-const GOOGLE_OAUTH_KEY = process.env.REACT_APP_DEV_GOOGLE_OAUTH_KEY
-const FACEBOOK_APP_ID = "554005682058138"
-
-// styles copied from example form to play with
-const useStyles = makeStyles((theme) => ({
-    
-    login: {
-      marginTop: theme.spacing(5),
-      padding: '2rem',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-    },
-    form: {
-      width: '100%',
-      marginTop: theme.spacing(1),
-      alignItems: 'center',
-    }
-}));
-
 class UserForm extends Component {
-    // classes = useStyles();
-
-    // React hooks for state
-    // const [email, setEmail] = useState();
-    // const [password, setPassword] = useState();
 
     handleInputChange = (event) => {
         this.setState({
@@ -42,7 +12,6 @@ class UserForm extends Component {
         });
     }
     
-            
     // For Oauth buttons
     responseGoogle = (response) => {
         console.log(response);
