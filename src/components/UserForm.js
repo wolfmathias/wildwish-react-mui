@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Container, Paper, TextField, Button } from '@material-ui/core';
+import { TextField, Button } from '@material-ui/core';
 
 import { addUser } from '../actions/userActions';
 
