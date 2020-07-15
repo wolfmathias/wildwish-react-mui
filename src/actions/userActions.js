@@ -26,7 +26,9 @@ export const loginUser = (email, password) => {
     }
 }
 
-export const createUser = (email, password) => {
+export const addUser = (email, password, action) => {
+    // Use 'action' to determine route?
+    
     const LOGIN_URL = 'http://localhost:3001/users/sign_up'
     const LOGIN_OPTIONS = {
         method: 'POST',
