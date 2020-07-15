@@ -37,9 +37,9 @@ class UserForm extends Component {
     // const [password, setPassword] = useState();
 
     handleInputChange = (event) => {
-        setState(
-            event.target.value
-        );
+        this.setState({
+            [event.target.id]: event.target.value
+        });
     }
     
             
@@ -57,7 +57,7 @@ class UserForm extends Component {
         event.preventDefault()
         
         if (email && password) {
-            props.addUser(email, password, action);
+            this.props.addUser(email, password, action);
         }
     }
 
@@ -96,3 +96,5 @@ class UserForm extends Component {
         )
     }
 }
+
+export default connect(null, { addUser })(UserForm);
